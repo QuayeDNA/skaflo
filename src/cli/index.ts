@@ -6,7 +6,9 @@ const program = new Command();
 
 program
   .name('devforge')
-  .description('A powerful CLI tool that generates production-ready folder structures and boilerplate code for modern JavaScript/TypeScript projects.')
+  .description(
+    'A powerful CLI tool that generates production-ready folder structures and boilerplate code for modern JavaScript/TypeScript projects.',
+  )
   .version('1.0.0');
 
 program

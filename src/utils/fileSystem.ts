@@ -74,7 +74,10 @@ export class FileSystemUtils {
   /**
    * Check for conflicts before creating files
    */
-  static async checkConflicts(targetDir: string, files: string[]): Promise<string[]> {
+  static async checkConflicts(
+    targetDir: string,
+    files: string[],
+  ): Promise<string[]> {
     const conflicts: string[] = [];
 
     for (const file of files) {
@@ -93,7 +96,7 @@ export class FileSystemUtils {
   static async createProjectStructure(
     targetDir: string,
     structure: Record<string, any>,
-    variables: Record<string, any> = {}
+    variables: Record<string, any> = {},
   ): Promise<void> {
     const spinner = ora('Creating project structure...').start();
 
@@ -106,7 +109,10 @@ export class FileSystemUtils {
           let processedContent = content;
           // Simple variable replacement
           for (const [key, value] of Object.entries(variables)) {
-            processedContent = processedContent.replace(new RegExp(`{{${key}}}`, 'g'), value);
+            processedContent = processedContent.replace(
+              new RegExp(`{{${key}}}`, 'g'),
+              value,
+            );
           }
           await this.writeFile(fullPath, processedContent);
         } else if (content === null) {
