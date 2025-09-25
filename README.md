@@ -25,7 +25,7 @@ npx devforge create my-app
 
 Every developer has been there – staring at an empty folder, wondering how to organize their new project. Should components go in `/src/components` or `/src/features/*/components`? Where do utilities live? What about tests?
 
-**ScaffoldJS solves this by:**
+**DevForge solves this by:**
 
 - 📁 Providing battle-tested folder structures from successful projects
 - 🎯 Supporting multiple architectural patterns (feature-based, layered, domain-driven)
@@ -146,7 +146,7 @@ my-react-app/
 - [ ] **Custom template system** - Users can define their own templates
 - [ ] **Template marketplace** - Community-contributed templates
 - [ ] **VS Code extension** - Generate structures directly in editor
-- [ ] **Configuration file support** (`.scaffoldrc`)
+- [ ] **Configuration file support** (`.devforgerc`)
 
 ### 🌟 Phase 3: Advanced Capabilities (v2.0) - Q3 2024
 
@@ -163,7 +163,7 @@ my-react-app/
 ### 🚀 Phase 4: Enterprise Features (v3.0) - Q4 2024
 
 - [ ] **Enterprise template governance** - Approve/manage templates at org level
-- [ ] **Integration APIs** - Embed ScaffoldJS in other tools
+- [ ] **Integration APIs** - Embed DevForge in other tools
 - [ ] **Advanced customization** - Conditional logic in templates
 - [ ] **Multi-language support** - Python, Go, Rust project structures
 - [ ] **Cloud deployment integration** - Auto-configure Vercel, Netlify, AWS
@@ -313,4 +313,4 @@ npm install -g devforge
 devforge create my-next-big-thing
 ```
 
-⭐ **Star this repo** if ScaffoldJS helps you build faster!
+⭐ **Star this repo** if DevForge helps you build faster!
