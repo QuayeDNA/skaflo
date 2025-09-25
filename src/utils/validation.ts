@@ -11,7 +11,8 @@ export class ValidationUtils {
       .pattern(/^[a-zA-Z][a-zA-Z0-9-_]*$/)
       .required()
       .messages({
-        'string.pattern.base': 'Project name must start with a letter and contain only letters, numbers, hyphens, and underscores',
+        'string.pattern.base':
+          'Project name must start with a letter and contain only letters, numbers, hyphens, and underscores',
         'string.min': 'Project name must be at least 1 character long',
         'string.max': 'Project name must be no more than 50 characters long',
       });
@@ -36,7 +37,10 @@ export class ValidationUtils {
   /**
    * Validate structure choice based on framework
    */
-  static validateStructure(structure: string, framework: string): Joi.ValidationResult {
+  static validateStructure(
+    structure: string,
+    framework: string,
+  ): Joi.ValidationResult {
     let validStructures: string[] = [];
 
     switch (framework) {
@@ -72,13 +76,15 @@ export class ValidationUtils {
       structure: Joi.string().required(),
       dependencies: Joi.array().items(Joi.string()).default([]),
       devDependencies: Joi.array().items(Joi.string()).default([]),
-      files: Joi.array().items(
-        Joi.object({
-          path: Joi.string().required(),
-          content: Joi.string().required(),
-          template: Joi.boolean().default(false),
-        })
-      ).default([]),
+      files: Joi.array()
+        .items(
+          Joi.object({
+            path: Joi.string().required(),
+            content: Joi.string().required(),
+            template: Joi.boolean().default(false),
+          }),
+        )
+        .default([]),
     });
 
     return schema.validate(template);
