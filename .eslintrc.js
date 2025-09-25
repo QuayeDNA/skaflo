@@ -3,18 +3,12 @@ module.exports = {
     node: true,
     es2021: true,
   },
-  extends: [
-    'eslint:recommended',
-    '@typescript-eslint/recommended',
-  ],
+  extends: ['eslint:recommended', '@typescript-eslint/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-  ],
-  rules: {
-  },
+  plugins: ['@typescript-eslint'],
+  rules: {},
 };
