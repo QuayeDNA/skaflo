@@ -23,7 +23,7 @@ export async function promptProjectDetails(): Promise<ProjectPrompts> {
       type: 'list',
       name: 'structure',
       message: 'Which project structure?',
-      choices: (answers: any) => {
+      choices: (answers: { framework?: string }) => {
         switch (answers.framework) {
           case 'react':
             return [

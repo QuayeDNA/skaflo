@@ -2,7 +2,7 @@ export interface GeneratorOptions {
   template: string;
   projectName: string;
   targetDir: string;
-  variables?: Record<string, any>;
+  variables?: Record<string, unknown>;
 }
 
 export interface GeneratorResult {

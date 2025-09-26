@@ -95,8 +95,8 @@ export class FileSystemUtils {
    */
   static async createProjectStructure(
     targetDir: string,
-    structure: Record<string, any>,
-    variables: Record<string, any> = {},
+    structure: Record<string, string | null>,
+    variables: Record<string, string> = {},
   ): Promise<void> {
     const spinner = ora('Creating project structure...').start();
 

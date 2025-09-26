@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import { Template } from '../types/template.types';
 
 export class ValidationUtils {
   /**
@@ -68,7 +69,7 @@ export class ValidationUtils {
   /**
    * Validate template definition
    */
-  static validateTemplateDefinition(template: any): Joi.ValidationResult {
+  static validateTemplateDefinition(template: Template): Joi.ValidationResult {
     const schema = Joi.object({
       name: Joi.string().required(),
       description: Joi.string().required(),
@@ -106,7 +107,10 @@ export class ValidationUtils {
   /**
    * General validation helper
    */
-  static validate(data: any, schema: Joi.ObjectSchema): Joi.ValidationResult {
+  static validate(
+    data: unknown,
+    schema: Joi.ObjectSchema,
+  ): Joi.ValidationResult {
     return schema.validate(data);
   }
 
