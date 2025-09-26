@@ -1,6 +1,14 @@
 import fs from 'fs-extra';
 import { FileSystemUtils } from '../../../src/utils/fileSystem';
 
+jest.mock('ora', () => ({
+  default: jest.fn(() => ({
+    start: jest.fn().mockReturnThis(),
+    succeed: jest.fn(),
+    fail: jest.fn(),
+  })),
+}));
+
 // Mock fs-extra
 jest.mock('fs-extra', () => ({
   ensureDir: jest.fn(),
@@ -50,7 +58,9 @@ describe('FileSystemUtils', () => {
     });
 
     it('should return false when path does not exist', async () => {
-      (mockedFs.access as unknown as jest.Mock).mockRejectedValue(new Error('ENOENT'));
+      (mockedFs.access as unknown as jest.Mock).mockRejectedValue(
+        new Error('ENOENT'),
+      );
 
       const result = await FileSystemUtils.pathExists('/nonexistent/path');
       expect(result).toBe(false);
@@ -89,7 +99,9 @@ describe('FileSystemUtils', () => {
 
   describe('readFile', () => {
     it('should read file successfully', async () => {
-      (mockedFs.readFile as unknown as jest.Mock).mockResolvedValue('file content');
+      (mockedFs.readFile as unknown as jest.Mock).mockResolvedValue(
+        'file content',
+      );
 
       const result = await FileSystemUtils.readFile('/test/file.txt');
       expect(result).toBe('file content');
@@ -109,7 +121,9 @@ describe('FileSystemUtils', () => {
 
   describe('checkConflicts', () => {
     it('should return empty array when no conflicts', async () => {
-      (mockedFs.access as unknown as jest.Mock).mockRejectedValue(new Error('ENOENT'));
+      (mockedFs.access as unknown as jest.Mock).mockRejectedValue(
+        new Error('ENOENT'),
+      );
 
       const result = await FileSystemUtils.checkConflicts('/target', [
         'file1.txt',
