@@ -115,7 +115,7 @@ skaflo create my-saas
 # ✓ Structure: Feature-based
 # ✓ Location: ./my-saas
 
-# Result: 37 organized folders ready for your authentication, 
+# Result: 37 organized folders ready for your authentication,
 # dashboard, billing, and other feature development
 ```
 
@@ -160,7 +160,7 @@ When using the **feature-based** structure, organize your features by domain:
 ```
 src/features/
 ├── auth/          # Authentication & user management
-├── dashboard/     # Main dashboard functionality  
+├── dashboard/     # Main dashboard functionality
 ├── billing/       # Payment & subscription features
 ├── analytics/     # Data visualization & reports
 ├── settings/      # User & application settings
@@ -187,7 +187,7 @@ Both structures include organized test folders:
 ```
 tests/
 ├── components/    # Component unit tests
-├── hooks/         # Custom hooks tests  
+├── hooks/         # Custom hooks tests
 ├── services/      # API & service tests
 ├── utils/         # Utility function tests
 ├── fixtures/      # Test data & fixtures
@@ -203,6 +203,7 @@ tests/
    - Component library or smaller app? → `component-based`
 
 2. **Generate the structure**:
+
    ```bash
    skaflo create my-project --framework react --structure feature-based
    ```
@@ -230,6 +231,7 @@ A: Yes, but be careful. Skaflo won't overwrite existing directories, but it will
 
 **Q: Why no files?**  
 A: Skaflo focuses on organization, not opinions. You choose your own:
+
 - Build tools (Vite, Webpack, etc.)
 - Package manager (npm, yarn, pnpm)
 - Testing framework (Jest, Vitest, etc.)

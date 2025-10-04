@@ -8,7 +8,8 @@ _Complete development roadmap showing progress from conception to folder-only st
 
 **Decision**: Transform Skaflo from file generation to folder-only structure scaffolding
 
-**Reasoning**: 
+**Reasoning**:
+
 - Users want clean project organization without opinionated file content
 - Folder structures provide value without assumptions about code style
 - Faster, simpler, and more focused tool
@@ -81,10 +82,10 @@ _Complete development roadmap showing progress from conception to folder-only st
    - ✅ Comprehensive commit with detailed changes
    - ✅ Successfully pushed to remote repository
    - ✅ Pull request ready for review
-    - List required dependencies
-    - Create placeholder files
+   - List required dependencies
+   - Create placeholder files
 
-18. **React Template Files**
+10. **React Template Files**
     - `templates/files/react/feature-based/`
     - `App.tsx.hbs` template
     - `main.tsx.hbs` template
@@ -155,7 +156,7 @@ _Complete development roadmap showing progress from conception to folder-only st
 
 1. **Vue.js & Nuxt Support** 🚧
    - Vue 3 Composition API structure
-   - Nuxt 3 App Router architecture  
+   - Nuxt 3 App Router architecture
    - Options API structure for compatibility
    - Pinia store organization
 
@@ -181,7 +182,7 @@ _Complete development roadmap showing progress from conception to folder-only st
 
 1. **Backend Framework Templates** 🚧
    - NestJS modular architecture
-   - Fastify plugin-based structure  
+   - Fastify plugin-based structure
    - Koa middleware organization
    - Express with TypeScript
 
@@ -267,7 +268,7 @@ _Complete development roadmap showing progress from conception to folder-only st
 ```typescript
 // Completed Implementation
 FolderStructureEngine → Folder creation only
-ProjectFolderGenerator → Validation + generation  
+ProjectFolderGenerator → Validation + generation
 StructureRegistry → Template lookup system
 React Templates → Feature-based & component-based
 CLI Commands → create, list, preview
@@ -291,7 +292,7 @@ AnalyticsEngine → Usage tracking and insights
 ### Core Principles ✅
 
 1. **Folder-Only Generation** - No file creation, pure structure
-2. **User Control** - No assumptions about content or dependencies  
+2. **User Control** - No assumptions about content or dependencies
 3. **Framework Agnostic** - Support multiple architectures per framework
 4. **Developer Experience** - Fast, intuitive, and reliable
 5. **Community Driven** - Extensible and shareable templates
@@ -300,7 +301,7 @@ AnalyticsEngine → Usage tracking and insights
 
 - **Test Coverage**: Maintain 75%+ coverage with comprehensive test suites
 - **Type Safety**: Full TypeScript implementation with strict mode
-- **Performance**: Sub-10 second generation for complex structures  
+- **Performance**: Sub-10 second generation for complex structures
 - **Reliability**: Comprehensive validation and error handling
 - **Documentation**: Clear examples and usage instructions
 
@@ -313,7 +314,7 @@ AnalyticsEngine → Usage tracking and insights
 **Next Steps**:
 
 1. Merge PR and publish v1.0 to npm
-2. Begin Phase 2 template expansion  
+2. Begin Phase 2 template expansion
 3. Gather community feedback and requests
 4. Plan VS Code extension development
 

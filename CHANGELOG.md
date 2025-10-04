@@ -14,6 +14,7 @@ This is a complete architectural transformation of Skaflo from a file generation
 ### ✨ Added
 
 #### Core Functionality
+
 - **Folder-Only Generation**: Creates organized directory hierarchies without any files
 - **React Templates**: Feature-based (37 folders) and Component-based (25 folders) structures
 - **Complete CLI**: Three working commands (`create`, `list`, `preview`)
@@ -21,6 +22,7 @@ This is a complete architectural transformation of Skaflo from a file generation
 - **Non-Interactive Mode**: Command-line flags for automated usage
 
 #### New CLI Commands
+
 - `skaflo create <project-name>` - Create folder structure with interactive prompts
 - `skaflo create <name> --framework react --structure feature-based` - Non-interactive creation
 - `skaflo list` - Display all available templates
@@ -29,18 +31,21 @@ This is a complete architectural transformation of Skaflo from a file generation
 - `skaflo --help` - Display help information
 
 #### New Architecture Components
+
 - **FolderStructureEngine** (`src/generators/templateEngine.ts`) - Core folder generation system
 - **ProjectFolderGenerator** (`src/generators/folderGenerator.ts`) - Validation and generation orchestrator
 - **StructureRegistry** (`src/templates/registry.ts`) - Template lookup and management system
 - **React Structure Definitions** (`src/templates/react.structures.ts`) - Predefined React architectures
 
 #### Enhanced Type System
+
 - **Generator Types** (`src/types/generator.types.ts`) - Interfaces for generation system
 - **Template Types** (`src/types/template.types.ts`) - Template definition interfaces
 - **CLI Types** (`src/types/cli.types.ts`) - Command-line interface types
 - **Unified Exports** (`src/types/index.ts`) - Centralized type exports
 
 #### Testing Infrastructure
+
 - **97 Tests Passing** across 8 comprehensive test suites
 - **75.46% Code Coverage** with detailed test scenarios
 - **CLI Command Testing** with mocking and validation
@@ -51,18 +56,21 @@ This is a complete architectural transformation of Skaflo from a file generation
 ### 🔄 Changed
 
 #### Architecture Transformation
+
 - **Removed Handlebars dependency** - No longer generating file content
 - **Replaced template engine** with custom folder structure system
 - **Simplified generation process** - Focus on directory creation only
 - **Enhanced validation system** - Comprehensive project name and location validation
 
 #### CLI Experience
+
 - **Improved prompts** with better UX and validation
 - **Enhanced error handling** with user-friendly messages
 - **Better feedback** with success messages and folder counts
 - **Faster generation** - Sub-10 second structure creation
 
 #### Development Experience
+
 - **Updated TypeScript configuration** with stricter type checking
 - **Enhanced Jest configuration** with better coverage reporting
 - **Improved ESLint rules** for code quality
@@ -71,12 +79,14 @@ This is a complete architectural transformation of Skaflo from a file generation
 ### 🗑️ Removed
 
 #### File Generation System
+
 - **Handlebars template engine** - No longer needed for folder-only generation
 - **File template definitions** - Removed all boilerplate file creation
 - **Package.json generation** - Users maintain full control over dependencies
 - **Configuration file creation** - No opinionated setup files
 
 #### Dependencies Cleanup
+
 - **Handlebars** - Template engine no longer needed
 - **File system template processing** - Simplified to folder creation only
 - **Complex template inheritance** - Simplified to direct folder definitions
@@ -84,6 +94,7 @@ This is a complete architectural transformation of Skaflo from a file generation
 ### 🛠️ Technical Details
 
 #### File Structure Changes
+
 ```
 Added:
 ├── src/generators/
@@ -108,12 +119,14 @@ Modified:
 ```
 
 #### Performance Improvements
+
 - **Generation Speed**: Sub-10 second creation for complex structures
 - **Memory Usage**: Reduced by removing file template processing
 - **Bundle Size**: Smaller due to removed dependencies
 - **Startup Time**: Faster CLI initialization
 
 #### Quality Metrics
+
 - **Test Coverage**: 75.46% with 97 passing tests
 - **Type Safety**: 100% TypeScript with strict mode
 - **Code Quality**: Zero ESLint errors
@@ -122,6 +135,7 @@ Modified:
 ### 🚀 Migration Guide
 
 #### For Users
+
 ```bash
 # OLD: Generated files with boilerplate
 skaflo create my-app --with-files
@@ -132,6 +146,7 @@ skaflo create my-app
 ```
 
 #### For Developers
+
 - **API Changes**: Complete rewrite - see new type definitions
 - **Template System**: JSON-based folder definitions instead of Handlebars
 - **Generation Process**: Direct folder creation instead of file templating
@@ -139,7 +154,7 @@ skaflo create my-app
 ### 🎯 What's Next (v1.5)
 
 - Vue.js and Nuxt folder structure templates
-- Next.js App Router and Pages Router structures  
+- Next.js App Router and Pages Router structures
 - Express/Node.js layered and MVC architectures
 - Angular standalone and module-based structures
 - VS Code extension for in-editor generation

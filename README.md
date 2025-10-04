@@ -81,7 +81,7 @@ Every developer has been there – staring at an empty folder, wondering how to 
 
 - ✅ **Interactive CLI prompts** with framework/architecture selection
 - ✅ **Non-interactive mode** with command-line flags
-- ✅ **Project structure preview** before generation  
+- ✅ **Project structure preview** before generation
 - ✅ **Folder-only generation** - no files created
 - ✅ **Smart validation** - prevents overwrites and validates project names
 - ✅ **Comprehensive error handling** with user-friendly messages
@@ -229,7 +229,7 @@ my-react-app/
 ### 🎯 Phase 2: Template Expansion (v1.5) - Q1 2025
 
 - [ ] **Vue.js & Nuxt** folder structures
-- [ ] **Next.js** App Router and Pages Router structures  
+- [ ] **Next.js** App Router and Pages Router structures
 - [ ] **Express/Node.js** layered and MVC architectures
 - [ ] **Angular** standalone and module-based structures
 - [ ] **Custom template definitions** - JSON-based template system
@@ -269,7 +269,7 @@ skaflo/
 │   │   └── react.structures.ts   ✅ React folder structure definitions
 │   ├── types/
 │   │   ├── cli.types.ts          ✅ CLI interfaces
-│   │   ├── generator.types.ts    ✅ Generator interfaces  
+│   │   ├── generator.types.ts    ✅ Generator interfaces
 │   │   ├── template.types.ts     ✅ Template interfaces
 │   │   └── index.ts              ✅ Type exports
 │   ├── utils/
@@ -290,7 +290,7 @@ skaflo/
 - **Interactive Prompts**: [Inquirer.js](https://github.com/SBoudrias/Inquirer.js) for user input
 - **Folder Generation**: Custom `FolderStructureEngine` (no file templating)
 - **File System**: Node.js `fs` with async/await and safety checks
-- **Validation**: Custom validation with comprehensive error handling  
+- **Validation**: Custom validation with comprehensive error handling
 - **Testing**: Jest with 97 tests and 75.46% coverage
 - **Build**: TypeScript + ESLint for code quality
 
@@ -421,7 +421,7 @@ All pull requests must pass the following checks before merging:
 ### Success Criteria for v1.0
 
 - [x] ✅ Folder-only generation (no unwanted files)
-- [x] ✅ Interactive CLI with validation  
+- [x] ✅ Interactive CLI with validation
 - [x] ✅ Non-interactive mode with flags
 - [x] ✅ Preview functionality
 - [x] ✅ React template support
@@ -450,7 +450,7 @@ $ skaflo create my-saas-app
 ✅ Created 37 directories for React feature-based structure
 ✅ Structure created successfully at: ./my-saas-app
 
-Your organized folder structure is ready! 
+Your organized folder structure is ready!
 Add your files and start building. 🚀
 ```
 
@@ -461,7 +461,7 @@ Add your files and start building. 🚀
 ```bash
 $ skaflo create design-system --framework react --structure component-based
 
-✅ Creating folder structure...  
+✅ Creating folder structure...
 ✅ Created 25 directories for React component-based structure
 ✅ Structure created successfully at: ./design-system
 
