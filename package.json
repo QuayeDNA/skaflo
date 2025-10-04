@@ -1,10 +1,10 @@
 {
-  "name": "skaflow",
+  "name": "skaflo",
   "version": "1.0.0",
   "description": "> **Stop reinventing project structures. Start building faster.**",
   "main": "dist/index.js",
   "bin": {
-    "skaflow": "dist/index.js"
+    "skaflo": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -18,15 +18,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QuayeDNA/devforge.git"
+    "url": "git+https://github.com/QuayeDNA/skaflo.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/QuayeDNA/devforge/issues"
+    "url": "https://github.com/QuayeDNA/skaflo/issues"
   },
-  "homepage": "https://github.com/QuayeDNA/devforge#readme",
+  "homepage": "https://github.com/QuayeDNA/skaflo#readme",
   "dependencies": {
     "chalk": "^5.6.2",
     "commander": "^14.0.1",

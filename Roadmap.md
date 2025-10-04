@@ -9,9 +9,9 @@ _A complete step-by-step development guide for building the scaffolding CLI tool
 1. **Initialize Git Repository** ✅
 
    ```bash
-   git init skaflow
-   cd skaflow
-   git remote add origin https://github.com/QuayeDNA/skaflow.git
+   git init skaflo
+   cd skaflo
+   git remote add origin https://github.com/QuayeDNA/skaflo.git
    ```
 
 2. **Setup Node.js Project Structure** ✅
@@ -271,7 +271,7 @@ _A complete step-by-step development guide for building the scaffolding CLI tool
 #### Day 3-4: Configuration System
 
 34. **Configuration File Support**
-    - `.skaflowrc` file support
+    - `.skaflorc` file support
     - Global and project-specific configs
     - Template preferences
 
