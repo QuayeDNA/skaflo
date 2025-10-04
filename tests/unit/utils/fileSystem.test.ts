@@ -144,4 +144,91 @@ describe('FileSystemUtils', () => {
       expect(result).toEqual(['file1.txt']);
     });
   });
+
+  describe('copy', () => {
+    it('should copy file successfully', async () => {
+      (mockedFs.copy as jest.Mock).mockResolvedValue(undefined);
+
+      await expect(
+        FileSystemUtils.copy('/source', '/dest'),
+      ).resolves.toBeUndefined();
+      expect(mockedFs.copy).toHaveBeenCalledWith('/source', '/dest');
+    });
+
+    it('should throw error on copy failure', async () => {
+      (mockedFs.copy as jest.Mock).mockRejectedValue(new Error('Copy failed'));
+
+      await expect(FileSystemUtils.copy('/source', '/dest')).rejects.toThrow(
+        'Failed to copy /source to /dest: Error: Copy failed',
+      );
+    });
+  });
+
+  describe('remove', () => {
+    it('should remove file successfully', async () => {
+      (mockedFs.remove as jest.Mock).mockResolvedValue(undefined);
+
+      await expect(
+        FileSystemUtils.remove('/test/file'),
+      ).resolves.toBeUndefined();
+      expect(mockedFs.remove).toHaveBeenCalledWith('/test/file');
+    });
+
+    it('should throw error on remove failure', async () => {
+      (mockedFs.remove as jest.Mock).mockRejectedValue(
+        new Error('Remove failed'),
+      );
+
+      await expect(FileSystemUtils.remove('/test/file')).rejects.toThrow(
+        'Failed to remove /test/file: Error: Remove failed',
+      );
+    });
+  });
+
+  describe('error handling edge cases', () => {
+    it('should handle writeFile with unknown error', async () => {
+      (mockedFs.ensureDir as jest.Mock).mockResolvedValue(undefined);
+      (mockedFs.writeFile as unknown as jest.Mock).mockRejectedValue(
+        'Unknown error',
+      );
+
+      await expect(
+        FileSystemUtils.writeFile('/test/file', 'content'),
+      ).rejects.toThrow('Failed to write file /test/file: Unknown error');
+    });
+
+    it('should handle readFile with unknown error', async () => {
+      (mockedFs.readFile as unknown as jest.Mock).mockRejectedValue(
+        'Unknown error',
+      );
+
+      await expect(FileSystemUtils.readFile('/test/file')).rejects.toThrow(
+        'Failed to read file /test/file: Unknown error',
+      );
+    });
+
+    it('should handle createDirectory with unknown error', async () => {
+      (mockedFs.ensureDir as jest.Mock).mockRejectedValue('Unknown error');
+
+      await expect(
+        FileSystemUtils.createDirectory('/test/path'),
+      ).rejects.toThrow('Failed to create directory /test/path: Unknown error');
+    });
+
+    it('should handle copy with unknown error', async () => {
+      (mockedFs.copy as jest.Mock).mockRejectedValue('Unknown error');
+
+      await expect(FileSystemUtils.copy('/source', '/dest')).rejects.toThrow(
+        'Failed to copy /source to /dest: Unknown error',
+      );
+    });
+
+    it('should handle remove with unknown error', async () => {
+      (mockedFs.remove as jest.Mock).mockRejectedValue('Unknown error');
+
+      await expect(FileSystemUtils.remove('/test/file')).rejects.toThrow(
+        'Failed to remove /test/file: Unknown error',
+      );
+    });
+  });
 });

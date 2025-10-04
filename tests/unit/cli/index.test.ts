@@ -1,7 +1,6 @@
-import { Command } from 'commander';
-
-jest.mock('commander', () => ({
-  Command: jest.fn().mockImplementation(() => ({
+// Mock all external dependencies
+jest.mock('commander', () => {
+  const mockCommand = {
     name: jest.fn().mockReturnThis(),
     description: jest.fn().mockReturnThis(),
     version: jest.fn().mockReturnThis(),
@@ -9,75 +8,94 @@ jest.mock('commander', () => ({
     argument: jest.fn().mockReturnThis(),
     option: jest.fn().mockReturnThis(),
     action: jest.fn().mockReturnThis(),
-    parse: jest.fn(),
-  })),
+    parse: jest.fn().mockReturnThis(),
+  };
+
+  return {
+    Command: jest.fn(() => mockCommand),
+    __mockCommand: mockCommand, // Expose for testing
+  };
+});
+
+jest.mock('chalk', () => ({
+  blue: jest.fn((str) => str),
+  green: jest.fn((str) => str),
+  yellow: jest.fn((str) => str),
+  red: jest.fn((str) => str),
+  gray: jest.fn((str) => str),
+  dim: jest.fn((str) => str),
 }));
+
+jest.mock('ora', () => {
+  const mockSpinner = {
+    start: jest.fn().mockReturnThis(),
+    succeed: jest.fn(),
+    fail: jest.fn(),
+  };
+  return jest.fn(() => mockSpinner);
+});
+
+jest.mock('../../../src/generators/folderGenerator');
+jest.mock('../../../src/templates/registry');
+jest.mock('../../../src/cli/prompts');
+
+// Mock console and process
+jest.spyOn(console, 'log').mockImplementation();
+jest.spyOn(console, 'error').mockImplementation();
+jest.spyOn(process, 'exit').mockImplementation(() => {
+  throw new Error('Process exit called');
+});
 
 describe('CLI Index', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    jest.resetModules();
   });
 
-  it('should create a command instance with correct configuration', () => {
-    jest.isolateModules(() => {
-      // Import the module to trigger the code
-      require('../../../src/cli/index');
-
-      expect(Command).toHaveBeenCalledTimes(1);
-      const commandInstance = (Command as jest.Mock).mock.results[0].value;
-
-      expect(commandInstance.name).toHaveBeenCalledWith('skaflo');
-      expect(commandInstance.description).toHaveBeenCalledWith(
-        'A powerful CLI tool that generates production-ready folder structures and boilerplate code for modern JavaScript/TypeScript projects.',
-      );
-      expect(commandInstance.version).toHaveBeenCalledWith('1.0.0');
-    });
+  afterEach(() => {
+    jest.resetAllMocks();
   });
 
-  it('should configure create command', () => {
-    jest.isolateModules(() => {
+  it('should import and initialize without errors', () => {
+    expect(() => {
       require('../../../src/cli/index');
-
-      const commandInstance = (Command as jest.Mock).mock.results[0].value;
-
-      expect(commandInstance.command).toHaveBeenCalledWith('create');
-      expect(commandInstance.argument).toHaveBeenCalledWith(
-        '<name>',
-        'project name',
-      );
-      expect(commandInstance.option).toHaveBeenCalledWith(
-        '-f, --framework <framework>',
-        'framework to use',
-      );
-      expect(commandInstance.option).toHaveBeenCalledWith(
-        '-s, --structure <structure>',
-        'project structure',
-      );
-      expect(commandInstance.action).toHaveBeenCalled();
-    });
+    }).not.toThrow();
   });
 
-  it('should configure list command', () => {
-    jest.isolateModules(() => {
-      require('../../../src/cli/index');
+  it('should create a command instance', () => {
+    const commandMock = require('commander');
+    require('../../../src/cli/index');
 
-      const commandInstance = (Command as jest.Mock).mock.results[0].value;
+    expect(commandMock.Command).toHaveBeenCalled();
+  });
 
-      expect(commandInstance.command).toHaveBeenCalledWith('list');
-      expect(commandInstance.description).toHaveBeenCalledWith(
-        'List available templates',
-      );
-      expect(commandInstance.action).toHaveBeenCalled();
-    });
+  it('should configure the main program', () => {
+    const commandMock = require('commander');
+    require('../../../src/cli/index');
+
+    const mockInstance = commandMock.__mockCommand;
+    expect(mockInstance.name).toHaveBeenCalledWith('skaflo');
+    expect(mockInstance.description).toHaveBeenCalledWith(
+      'A powerful CLI tool that generates project folder structures for modern JavaScript/TypeScript projects.',
+    );
+    expect(mockInstance.version).toHaveBeenCalledWith('1.0.0');
+  });
+
+  it('should configure create, list, and preview commands', () => {
+    const commandMock = require('commander');
+    require('../../../src/cli/index');
+
+    const mockInstance = commandMock.__mockCommand;
+    expect(mockInstance.command).toHaveBeenCalledWith('create');
+    expect(mockInstance.command).toHaveBeenCalledWith('list');
+    expect(mockInstance.command).toHaveBeenCalledWith('preview');
   });
 
   it('should call parse to start the CLI', () => {
-    jest.isolateModules(() => {
-      require('../../../src/cli/index');
+    const commandMock = require('commander');
+    require('../../../src/cli/index');
 
-      const commandInstance = (Command as jest.Mock).mock.results[0].value;
-
-      expect(commandInstance.parse).toHaveBeenCalled();
-    });
+    const mockInstance = commandMock.__mockCommand;
+    expect(mockInstance.parse).toHaveBeenCalled();
   });
 });

@@ -1,19 +1,19 @@
-export interface Template {
+export interface FolderStructure {
+  id: string;
   name: string;
   description: string;
   framework: string;
   structure: string;
-  dependencies: string[];
-  devDependencies: string[];
-  files: TemplateFile[];
+  directories: string[];
 }
 
-export interface TemplateFile {
-  path: string;
-  content: string;
-  template?: boolean;
+export interface GenerationOptions {
+  projectName: string;
+  framework: string;
+  structure: string;
+  outputPath: string;
 }
 
-export interface TemplateDefinition {
-  [key: string]: Template;
+export interface StructureDefinition {
+  [key: string]: FolderStructure;
 }

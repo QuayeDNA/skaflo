@@ -1,7 +1,7 @@
 {
   "name": "skaflo",
   "version": "1.0.0",
-  "description": "> **Stop reinventing project structures. Start building faster.**",
+  "description": "Clean folder structures. Zero boilerplate. Create organized project directories without any files - perfect for developers who want structure without assumptions.",
   "main": "dist/index.js",
   "bin": {
     "skaflo": "dist/index.js"
@@ -26,9 +26,25 @@
     "type": "git",
     "url": "git+https://github.com/QuayeDNA/skaflo.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "cli",
+    "scaffold",
+    "folder-structure",
+    "project-generator",
+    "directory-structure",
+    "react",
+    "typescript",
+    "project-setup",
+    "folder-generator",
+    "project-scaffolding",
+    "development-tools",
+    "project-organization",
+    "structure-generator",
+    "frontend-tools",
+    "developer-tools"
+  ],
+  "author": "QuayeDNA <quayedna@example.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/QuayeDNA/skaflo/issues"
   },
@@ -37,7 +53,6 @@
     "chalk": "^5.6.2",
     "commander": "^14.0.1",
     "fs-extra": "^11.3.2",
-    "handlebars": "^4.7.8",
     "inquirer": "^12.9.6",
     "joi": "^18.0.1",
     "ora": "^9.0.0"

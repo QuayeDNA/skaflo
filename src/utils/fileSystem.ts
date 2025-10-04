@@ -1,6 +1,5 @@
 import fs from 'fs-extra';
 import path from 'path';
-import ora from 'ora';
 
 export class FileSystemUtils {
   /**
@@ -88,43 +87,5 @@ export class FileSystemUtils {
     }
 
     return conflicts;
-  }
-
-  /**
-   * Create project structure with progress indication
-   */
-  static async createProjectStructure(
-    targetDir: string,
-    structure: Record<string, string | null>,
-    variables: Record<string, string> = {},
-  ): Promise<void> {
-    const spinner = ora('Creating project structure...').start();
-
-    try {
-      for (const [relativePath, content] of Object.entries(structure)) {
-        const fullPath = path.join(targetDir, relativePath);
-
-        if (typeof content === 'string') {
-          // It's a file with content
-          let processedContent = content;
-          // Simple variable replacement
-          for (const [key, value] of Object.entries(variables)) {
-            processedContent = processedContent.replace(
-              new RegExp(`{{${key}}}`, 'g'),
-              value,
-            );
-          }
-          await this.writeFile(fullPath, processedContent);
-        } else if (content === null) {
-          // It's a directory
-          await this.createDirectory(fullPath);
-        }
-      }
-
-      spinner.succeed('Project structure created successfully');
-    } catch (error) {
-      spinner.fail('Failed to create project structure');
-      throw error;
-    }
   }
 }

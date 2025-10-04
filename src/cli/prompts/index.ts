@@ -1,68 +1,62 @@
 import inquirer from 'inquirer';
+import { structureRegistry } from '../../templates/registry';
 
 export interface ProjectPrompts {
   framework: string;
   structure: string;
-  projectName: string;
   confirm: boolean;
 }
 
 export async function promptProjectDetails(): Promise<ProjectPrompts> {
-  const answers = await inquirer.prompt([
-    {
-      type: 'list',
-      name: 'framework',
-      message: 'Which framework would you like to use?',
-      choices: [
-        { name: 'React', value: 'react' },
-        { name: 'Next.js', value: 'nextjs' },
-        { name: 'Express', value: 'express' },
-      ],
-    },
-    {
-      type: 'list',
-      name: 'structure',
-      message: 'Which project structure?',
-      choices: (answers: { framework?: string }) => {
-        switch (answers.framework) {
-          case 'react':
-            return [
-              { name: 'Feature-based', value: 'feature-based' },
-              { name: 'Component-based', value: 'component-based' },
-            ];
-          case 'nextjs':
-            return [
-              { name: 'App Router', value: 'app-router' },
-              { name: 'Pages Router', value: 'pages-router' },
-            ];
-          case 'express':
-            return [
-              { name: 'Layered Architecture', value: 'layered' },
-              { name: 'MVC', value: 'mvc' },
-            ];
-          default:
-            return [];
-        }
-      },
-    },
-    {
-      type: 'input',
-      name: 'projectName',
-      message: 'What is the name of your project?',
-      validate: (input: string) => {
-        if (!input.trim()) {
-          return 'Project name cannot be empty';
-        }
-        return true;
-      },
-    },
-    {
-      type: 'confirm',
-      name: 'confirm',
-      message: 'Create project with these settings?',
-      default: true,
-    },
-  ]);
+  const frameworks = structureRegistry.getAvailableFrameworks();
 
-  return answers;
+  // Framework selection
+  const { framework } = await inquirer.prompt<{ framework: string }>({
+    type: 'list',
+    name: 'framework',
+    message: 'Which framework would you like to use?',
+    choices: frameworks.map((framework) => ({
+      name: framework.charAt(0).toUpperCase() + framework.slice(1),
+      value: framework,
+    })),
+  });
+
+  // Structure selection based on framework
+  const structures = structureRegistry.getAvailableStructures(framework);
+  const { structure } = await inquirer.prompt<{ structure: string }>({
+    type: 'list',
+    name: 'structure',
+    message: 'Which folder structure?',
+    choices: structures.map((structure) => ({
+      name: structure
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' '),
+      value: structure,
+    })),
+  });
+
+  // Show summary and confirm
+  const selectedStructure = structureRegistry.getStructureByFrameworkAndType(
+    framework,
+    structure,
+  );
+
+  console.log('\n📋 Project Summary:');
+  console.log(`   Framework: ${framework}`);
+  console.log(`   Structure: ${selectedStructure?.name || structure}`);
+  console.log(`   Description: ${selectedStructure?.description || 'N/A'}`);
+
+  const { confirm } = await inquirer.prompt<{ confirm: boolean }>({
+    type: 'confirm',
+    name: 'confirm',
+    message: 'Create project with these settings?',
+    default: true,
+  });
+
+  return {
+    framework,
+    structure,
+    confirm,
+  };
 }
