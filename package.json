@@ -1,10 +1,10 @@
 {
-  "name": "devforge",
+  "name": "skaflow",
   "version": "1.0.0",
   "description": "> **Stop reinventing project structures. Start building faster.**",
   "main": "dist/index.js",
   "bin": {
-    "devforge": "dist/index.js"
+    "skaflow": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
