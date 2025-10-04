@@ -6,7 +6,7 @@ A powerful CLI tool that generates production-ready folder structures and boiler
 
 [![npm version](https://badge.fury.io/js/skaflo.svg)](https://badge.fury.io/js/skaflo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/yourusername/skaflo/workflows/CI/badge.svg)](https://github.com/yourusername/skaflo/actions)
+[![Build Status](https://github.com/QuayeDNA/skaflo/workflows/CI/badge.svg)](https://github.com/QuayeDNA/skaflo/actions)
 
 ## 🚀 Quick Start
 
