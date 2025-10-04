@@ -4,21 +4,21 @@
 
 A powerful CLI tool that generates production-ready folder structures and boilerplate code for modern JavaScript/TypeScript projects. No more blank canvas paralysis – just pick your stack, choose your style, and start coding.
 
-[![npm version](https://badge.fury.io/js/skaflow.svg)](https://badge.fury.io/js/skaflow)
+[![npm version](https://badge.fury.io/js/skaflo.svg)](https://badge.fury.io/js/skaflo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/yourusername/skaflow/workflows/CI/badge.svg)](https://github.com/yourusername/skaflow/actions)
+[![Build Status](https://github.com/yourusername/skaflo/workflows/CI/badge.svg)](https://github.com/yourusername/skaflo/actions)
 
 ## 🚀 Quick Start
 
 ```bash
 # Install globally
-npm install -g skaflow
+npm install -g skaflo
 
 # Generate a new project
-skaflow create my-app
+skaflo create my-app
 
 # Or use npx (no installation required)
-npx skaflow create my-app
+npx skaflo create my-app
 ```
 
 ## ✨ Why Skaflo?
@@ -62,7 +62,7 @@ Every developer has been there – staring at an empty folder, wondering how to 
 ### Interactive Mode (Recommended)
 
 ```bash
-skaflow create my-awesome-app
+skaflo create my-awesome-app
 ```
 
 This launches an interactive wizard that asks you:
@@ -75,7 +75,7 @@ This launches an interactive wizard that asks you:
 ### Non-Interactive Mode
 
 ```bash
-skaflow create my-app \
+skaflo create my-app \
   --framework react \
   --structure feature-based \
   --typescript \
@@ -86,7 +86,7 @@ skaflow create my-app \
 ### Preview Mode
 
 ```bash
-skaflow preview --framework react --structure feature-based
+skaflo preview --framework react --structure feature-based
 ```
 
 ## 📁 Example Generated Structure
@@ -146,7 +146,7 @@ my-react-app/
 - [ ] **Custom template system** - Users can define their own templates
 - [ ] **Template marketplace** - Community-contributed templates
 - [ ] **VS Code extension** - Generate structures directly in editor
-- [ ] **Configuration file support** (`.skaflowrc`)
+- [ ] **Configuration file support** (`.skaflorc`)
 
 ### 🌟 Phase 3: Advanced Capabilities (v2.0) - Q3 2024
 
@@ -173,7 +173,7 @@ my-react-app/
 ### MVP Architecture
 
 ```
-skaflow-cli/
+skaflo-cli/
 ├── src/
 │   ├── cli/
 │   │   ├── commands/
@@ -222,8 +222,8 @@ interface TemplateDefinition {
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/skaflow.git
-cd skaflow
+git clone https://github.com/yourusername/skaflo.git
+cd skaflo
 
 # Install dependencies
 npm install
@@ -239,7 +239,7 @@ npm run build
 
 # Test CLI locally
 npm link
-skaflow --help
+skaflo --help
 ```
 
 ## 🤝 Contributing
@@ -282,21 +282,21 @@ We love contributions! Here's how you can help:
 ### Scenario 1: Startup MVP
 
 ```bash
-skaflow create startup-mvp --framework react --structure feature-based --typescript --testing
+skaflo create startup-mvp --framework react --structure feature-based --typescript --testing
 # Generates production-ready React app with testing, linting, CI/CD
 ```
 
 ### Scenario 2: Enterprise API
 
 ```bash
-skaflow create enterprise-api --framework express --structure layered --typescript --docker --monitoring
+skaflo create enterprise-api --framework express --structure layered --typescript --docker --monitoring
 # Generates scalable Node.js API with logging, monitoring, containerization
 ```
 
 ### Scenario 3: Full-stack Application
 
 ```bash
-skaflow create fullstack-app --type monorepo --frontend react --backend express --database postgres
+skaflo create fullstack-app --type monorepo --frontend react --backend express --database postgres
 # Generates monorepo with shared types, API client, database migrations
 ```
 
@@ -309,8 +309,8 @@ MIT © [Your Name](https://github.com/yourusername)
 **Ready to scaffold your next project?**
 
 ```bash
-npm install -g skaflow
-skaflow create my-next-big-thing
+npm install -g skaflo
+skaflo create my-next-big-thing
 ```
 
 ⭐ **Star this repo** if Skaflo helps you build faster!

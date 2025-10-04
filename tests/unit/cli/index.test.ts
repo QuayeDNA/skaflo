@@ -26,7 +26,7 @@ describe('CLI Index', () => {
       expect(Command).toHaveBeenCalledTimes(1);
       const commandInstance = (Command as jest.Mock).mock.results[0].value;
 
-      expect(commandInstance.name).toHaveBeenCalledWith('skaflow');
+      expect(commandInstance.name).toHaveBeenCalledWith('skaflo');
       expect(commandInstance.description).toHaveBeenCalledWith(
         'A powerful CLI tool that generates production-ready folder structures and boilerplate code for modern JavaScript/TypeScript projects.',
       );
