@@ -1,2 +1,3 @@
-export * from './cli/index';
-// Test comment
+#!/usr/bin/env node
+
+import './cli/index';

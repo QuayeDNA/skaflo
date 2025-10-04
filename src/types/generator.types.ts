@@ -1,16 +1,18 @@
+import { GenerationOptions } from './template.types';
+
 export interface GeneratorOptions {
-  template: string;
+  structure: string;
   projectName: string;
   targetDir: string;
-  variables?: Record<string, unknown>;
 }
 
 export interface GeneratorResult {
   success: boolean;
-  filesCreated: string[];
+  directoriesCreated: string[];
   errors?: string[];
+  warnings?: string[];
 }
 
-export interface FileGenerator {
-  generate(options: GeneratorOptions): Promise<GeneratorResult>;
+export interface FolderGenerator {
+  generate(options: GenerationOptions): Promise<GeneratorResult>;
 }

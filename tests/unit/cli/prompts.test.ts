@@ -5,6 +5,22 @@ jest.mock('inquirer', () => ({
   prompt: jest.fn(),
 }));
 
+// Mock structure registry
+jest.mock('../../../src/templates/registry', () => ({
+  structureRegistry: {
+    getAvailableFrameworks: jest.fn(() => ['react']),
+    getAvailableStructures: jest.fn(() => ['feature-based', 'component-based']),
+    getStructureByFrameworkAndType: jest.fn(() => ({
+      id: 'react-feature-based',
+      name: 'React Feature-Based',
+      description: 'React application with feature-based architecture',
+      framework: 'react',
+      structure: 'feature-based',
+      directories: ['src', 'tests'],
+    })),
+  },
+}));
+
 import inquirer from 'inquirer';
 
 const mockedInquirer = inquirer as jest.Mocked<typeof inquirer>;
@@ -12,58 +28,57 @@ const mockedInquirer = inquirer as jest.Mocked<typeof inquirer>;
 describe('CLI Prompts', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    // Mock console.log to prevent output during tests
+    jest.spyOn(console, 'log').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   describe('promptProjectDetails', () => {
-    it('should prompt for all project details', async () => {
+    it('should prompt for framework, structure and confirmation', async () => {
       const mockAnswers = {
         framework: 'react',
         structure: 'feature-based',
-        projectName: 'my-awesome-app',
         confirm: true,
       };
 
-      mockedInquirer.prompt.mockResolvedValue(mockAnswers);
+      // Mock the prompt calls in order
+      mockedInquirer.prompt
+        .mockResolvedValueOnce({ framework: 'react' })
+        .mockResolvedValueOnce({ structure: 'feature-based' })
+        .mockResolvedValueOnce({ confirm: true });
 
       const result = await promptProjectDetails();
 
       expect(result).toEqual(mockAnswers);
-      expect(mockedInquirer.prompt).toHaveBeenCalledWith([
-        {
-          type: 'list',
-          name: 'framework',
-          message: 'Which framework would you like to use?',
-          choices: [
-            { name: 'React', value: 'react' },
-            { name: 'Next.js', value: 'nextjs' },
-            { name: 'Express', value: 'express' },
-          ],
-        },
-        {
-          type: 'list',
-          name: 'structure',
-          message: 'Which project structure?',
-          choices: expect.any(Function),
-        },
-        {
-          type: 'input',
-          name: 'projectName',
-          message: 'What is the name of your project?',
-          validate: expect.any(Function),
-        },
-        {
-          type: 'confirm',
-          name: 'confirm',
-          message: 'Create project with these settings?',
-          default: true,
-        },
-      ]);
+      expect(mockedInquirer.prompt).toHaveBeenCalledTimes(3);
     });
 
-    it('should validate project name input', () => {
-      // This would be tested by calling the validate function directly
-      // Since it's embedded in the prompt config, we'd need to extract it
-      // For now, we'll assume the inquirer mock covers this
+    it('should handle user cancellation', async () => {
+      mockedInquirer.prompt
+        .mockResolvedValueOnce({ framework: 'react' })
+        .mockResolvedValueOnce({ structure: 'feature-based' })
+        .mockResolvedValueOnce({ confirm: false });
+
+      const result = await promptProjectDetails();
+
+      expect(result.confirm).toBe(false);
+    });
+
+    it('should show project summary before confirmation', async () => {
+      const consoleSpy = jest.spyOn(console, 'log');
+
+      mockedInquirer.prompt
+        .mockResolvedValueOnce({ framework: 'react' })
+        .mockResolvedValueOnce({ structure: 'feature-based' })
+        .mockResolvedValueOnce({ confirm: true });
+
+      await promptProjectDetails();
+
+      expect(consoleSpy).toHaveBeenCalledWith('\n📋 Project Summary:');
+      expect(consoleSpy).toHaveBeenCalledWith('   Framework: react');
     });
   });
 });

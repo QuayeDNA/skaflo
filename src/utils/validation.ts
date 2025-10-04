@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { Template } from '../types/template.types';
+import { existsSync, statSync, readdirSync } from 'fs';
 
 export class ValidationUtils {
   /**
@@ -42,6 +42,12 @@ export class ValidationUtils {
     structure: string,
     framework: string,
   ): Joi.ValidationResult {
+    // First validate that the framework is valid
+    const frameworkValidation = this.validateFramework(framework);
+    if (frameworkValidation.error) {
+      return frameworkValidation;
+    }
+
     let validStructures: string[] = [];
 
     switch (framework) {
@@ -64,31 +70,6 @@ export class ValidationUtils {
       });
 
     return schema.validate(structure);
-  }
-
-  /**
-   * Validate template definition
-   */
-  static validateTemplateDefinition(template: Template): Joi.ValidationResult {
-    const schema = Joi.object({
-      name: Joi.string().required(),
-      description: Joi.string().required(),
-      framework: Joi.string().valid('react', 'nextjs', 'express').required(),
-      structure: Joi.string().required(),
-      dependencies: Joi.array().items(Joi.string()).default([]),
-      devDependencies: Joi.array().items(Joi.string()).default([]),
-      files: Joi.array()
-        .items(
-          Joi.object({
-            path: Joi.string().required(),
-            content: Joi.string().required(),
-            template: Joi.boolean().default(false),
-          }),
-        )
-        .default([]),
-    });
-
-    return schema.validate(template);
   }
 
   /**
@@ -126,5 +107,27 @@ export class ValidationUtils {
    */
   static getErrorMessage(result: Joi.ValidationResult): string {
     return result.error?.details[0]?.message || 'Validation failed';
+  }
+}
+
+export function validateProjectName(name: string): boolean {
+  const result = ValidationUtils.validateProjectName(name);
+  return ValidationUtils.isValid(result);
+}
+
+export function directoryExists(path: string): boolean {
+  try {
+    return existsSync(path) && statSync(path).isDirectory();
+  } catch {
+    return false;
+  }
+}
+
+export function isDirectoryEmpty(path: string): boolean {
+  try {
+    const files = readdirSync(path);
+    return files.length === 0;
+  } catch {
+    return false;
   }
 }
