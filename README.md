@@ -129,7 +129,7 @@ my-react-app/
 
 ## 🚧 Roadmap
 
-### 🎯 Phase 1: MVP (v1.0) - Q1 2024
+### 🎯 Phase 1: MVP (v1.0) - Q4 2025
 
 - [x] Core CLI framework
 - [x] React, Next.js, Express templates
@@ -139,7 +139,7 @@ my-react-app/
 - [ ] Documentation
 - [ ] npm package publication
 
-### 🔥 Phase 2: Enhanced Features (v1.5) - Q2 2024
+### 🔥 Phase 2: Enhanced Features (v1.5) - Q1 2026
 
 - [ ] **Vue.js & Nuxt support**
 - [ ] **Monorepo structures** (Turborepo, Nx)
@@ -148,7 +148,7 @@ my-react-app/
 - [ ] **VS Code extension** - Generate structures directly in editor
 - [ ] **Configuration file support** (`.skaflorc`)
 
-### 🌟 Phase 3: Advanced Capabilities (v2.0) - Q3 2024
+### 🌟 Phase 3: Advanced Capabilities (v2.0) - Q2 2026
 
 - [ ] **AI-powered suggestions** - Analyze existing codebase and suggest improvements
 - [ ] **Migration tools** - Convert between different structures
@@ -160,7 +160,7 @@ my-react-app/
   - API documentation (OpenAPI)
 - [ ] **Analytics dashboard** - Track template usage and success metrics
 
-### 🚀 Phase 4: Enterprise Features (v3.0) - Q4 2024
+### 🚀 Phase 4: Enterprise Features (v3.0) - Q3 2026
 
 - [ ] **Enterprise template governance** - Approve/manage templates at org level
 - [ ] **Integration APIs** - Embed Skaflo in other tools
@@ -222,7 +222,7 @@ interface TemplateDefinition {
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/skaflo.git
+git clone https://github.com/QuayeDNA/skaflo.git
 cd skaflo
 
 # Install dependencies
@@ -302,7 +302,7 @@ skaflo create fullstack-app --type monorepo --frontend react --backend express -
 
 ## 📄 License
 
-MIT © [Your Name](https://github.com/yourusername)
+MIT © [QuayeDNA](https://github.com/QuayeDNA)
 
 ---
 
