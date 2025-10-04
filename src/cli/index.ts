@@ -3,7 +3,7 @@ import { Command } from 'commander';
 const program = new Command();
 
 program
-  .name('devforge')
+  .name('skaflow')
   .description(
     'A powerful CLI tool that generates production-ready folder structures and boilerplate code for modern JavaScript/TypeScript projects.',
   )
