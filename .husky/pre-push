@@ -1,2 +1,2 @@
-npm run lint
-npm run test:coverage
+pnpm run lint
+pnpm run test:coverage

@@ -1,5 +1,11 @@
 import { Command } from 'commander';
 
+// Define interface for create command options
+interface CreateCommandOptions {
+  framework?: string;
+  structure?: string;
+}
+
 const program = new Command();
 
 program
@@ -15,7 +21,7 @@ program
   .argument('<name>', 'project name')
   .option('-f, --framework <framework>', 'framework to use')
   .option('-s, --structure <structure>', 'project structure')
-  .action((name, options) => {
+  .action((name: string, options: CreateCommandOptions) => {
     console.log(`Creating project: ${name}`);
     console.log(`Framework: ${options.framework || 'default'}`);
     console.log(`Structure: ${options.structure || 'default'}`);

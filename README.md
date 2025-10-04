@@ -11,8 +11,11 @@ A powerful CLI tool that generates production-ready folder structures and boiler
 ## 🚀 Quick Start
 
 ```bash
-# Install globally
+# Install globally (npm)
 npm install -g skaflo
+
+# Or install globally (pnpm - recommended)
+pnpm add -g skaflo
 
 # Generate a new project
 skaflo create my-app
@@ -251,25 +254,46 @@ interface TemplateDefinition {
 
 ## 🧪 Development Setup
 
+### Prerequisites
+
+- Node.js 18.0.0 or higher
+- pnpm 8.0.0 or higher (recommended) or npm
+
+### Setup
+
 ```bash
 # Clone the repository
 git clone https://github.com/QuayeDNA/skaflo.git
 cd skaflo
 
-# Install dependencies
+# Install pnpm globally (if not already installed)
+npm install -g pnpm
+
+# Install dependencies (recommended)
+pnpm install
+
+# Or use npm if preferred
 npm install
 
 # Run in development mode
-npm run dev
+pnpm dev
+# or: npm run dev
 
 # Run tests
-npm test
+pnpm test
+# or: npm test
+
+# Run tests with coverage
+pnpm test:coverage
+
+# Run linting
+pnpm lint
 
 # Build for production
-npm run build
+pnpm build
 
 # Test CLI locally
-npm link
+pnpm link --global
 skaflo --help
 ```
 
@@ -291,6 +315,34 @@ We love contributions! Here's how you can help:
 - Add TypeScript support where applicable
 - Include basic testing setup
 - Follow framework-specific best practices
+
+### Pull Request Requirements
+
+All pull requests must pass the following checks before merging:
+
+#### Required CI Checks ✅
+
+- **Linting**: Code style and quality checks
+- **Testing**: Unit tests on Node.js 18.x and 20.x
+- **Build**: Successful TypeScript compilation
+- **Type Check**: TypeScript type checking
+- **Security Audit**: Dependency vulnerability scan
+
+#### PR Review Process
+
+1. **Automated Checks**: All CI checks must pass
+2. **Code Review**: At least 1 approving review required
+3. **Branch Protection**: PRs must be up-to-date with base branch
+4. **Quality Gates**: No failing tests, linting, or security issues
+
+#### Branch Protection Rules
+
+- Direct pushes to `main` are **blocked**
+- All changes must go through pull requests
+- Required status checks must pass
+- Auto-merge available once all requirements are met
+
+> 💡 **Tip**: Use `pnpm run lint` and `pnpm test` locally before pushing to catch issues early!
 
 ## 📊 Success Metrics
 
