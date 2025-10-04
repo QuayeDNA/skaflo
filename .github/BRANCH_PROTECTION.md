@@ -1,17 +1,12 @@
 # Repository Settings Configuration
 
-# This file documents the recommended branch protection rules
+## This file documents the recommended branch protection rules
 
-# These should be configured in GitHub repository settings
+## These should be configured in GitHub repository settings
 
 ## Branch Protection Rules for 'main'
 
 ### Required Status Checks
-
-- [x] Require status checks to pass before merging
-- [x] Require branches to be up to date before merging
-
-#### Required Status Checks:
 
 - `lint` (CI workflow)
 - `test (18.x)` (CI workflow)
