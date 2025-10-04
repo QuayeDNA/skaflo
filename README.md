@@ -65,14 +65,14 @@ Every developer has been there – staring at an empty folder, wondering how to 
 ### Framework Support (In Development)
 
 - **React** (Vite + TypeScript)
-  - Feature-based structure *(CLI structure ready, templates pending)*
-  - Component-based structure *(CLI structure ready, templates pending)*
+  - Feature-based structure _(CLI structure ready, templates pending)_
+  - Component-based structure _(CLI structure ready, templates pending)_
 - **Next.js**
-  - App Router structure *(CLI structure ready, templates pending)*
-  - Pages Router structure *(CLI structure ready, templates pending)*
+  - App Router structure _(CLI structure ready, templates pending)_
+  - Pages Router structure _(CLI structure ready, templates pending)_
 - **Express/Node.js**
-  - Layered architecture *(CLI structure ready, templates pending)*
-  - MVC pattern *(CLI structure ready, templates pending)*
+  - Layered architecture _(CLI structure ready, templates pending)_
+  - MVC pattern _(CLI structure ready, templates pending)_
 
 ### Core Functionality
 
@@ -80,12 +80,12 @@ Every developer has been there – staring at an empty folder, wondering how to 
 - ✅ CLI command structure and validation
 - ✅ File system utilities and safety checks
 - ✅ Input validation (project names, frameworks, structures)
-- ⚠️ Non-interactive mode with flags *(CLI supports flags, template generation pending)*
-- ❌ Project structure preview before generation *(pending template implementation)*
-- ❌ Template file generation with placeholders *(infrastructure ready, templates pending)*
-- ❌ TypeScript/JavaScript toggle *(pending template implementation)*
-- ❌ Git initialization *(pending implementation)*
-- ❌ Package.json generation with relevant dependencies *(pending implementation)*
+- ⚠️ Non-interactive mode with flags _(CLI supports flags, template generation pending)_
+- ❌ Project structure preview before generation _(pending template implementation)_
+- ❌ Template file generation with placeholders _(infrastructure ready, templates pending)_
+- ❌ TypeScript/JavaScript toggle _(pending template implementation)_
+- ❌ Git initialization _(pending implementation)_
+- ❌ Package.json generation with relevant dependencies _(pending implementation)_
 
 ## 🛠️ Usage
 
