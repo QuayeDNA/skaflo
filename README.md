@@ -33,29 +33,59 @@ Every developer has been there – staring at an empty folder, wondering how to 
 - ⚡ Getting you from idea to coding in under 30 seconds
 - 🛡️ Preventing accidental file overwrites with smart validation
 
+## 🚦 Current Status
+
+### Phase 1 Progress: 50% Complete
+
+#### ✅ What's Working
+
+- Complete CLI framework with interactive prompts
+- Input validation and error handling
+- File system utilities and safety checks
+- Comprehensive test suite (28 passing tests)
+- Project structure planning and validation
+
+#### ⚠️ In Development
+
+- Template definitions for React, Next.js, Express
+- File generation and project scaffolding
+- Package.json and dependency management
+
+#### ❌ Coming Next
+
+- Actual project generation functionality
+- TypeScript/JavaScript toggle
+- Git initialization
+- Documentation and examples
+
+> **Note:** The CLI structure is complete and tested, but template generation is still in development. You can run the CLI to see the interactive prompts, but it won't generate projects yet.
+
 ## 🎯 MVP Features (v1.0)
 
-### Supported Frameworks
+### Framework Support (In Development)
 
 - **React** (Vite + TypeScript)
-  - Feature-based structure
-  - Component-based structure
+  - Feature-based structure *(CLI structure ready, templates pending)*
+  - Component-based structure *(CLI structure ready, templates pending)*
 - **Next.js**
-  - App Router structure
-  - Pages Router structure
+  - App Router structure *(CLI structure ready, templates pending)*
+  - Pages Router structure *(CLI structure ready, templates pending)*
 - **Express/Node.js**
-  - Layered architecture
-  - MVC pattern
+  - Layered architecture *(CLI structure ready, templates pending)*
+  - MVC pattern *(CLI structure ready, templates pending)*
 
 ### Core Functionality
 
 - ✅ Interactive CLI prompts
-- ✅ Non-interactive mode with flags
-- ✅ Project structure preview before generation
-- ✅ Template file generation with placeholders
-- ✅ TypeScript/JavaScript toggle
-- ✅ Git initialization
-- ✅ Package.json generation with relevant dependencies
+- ✅ CLI command structure and validation
+- ✅ File system utilities and safety checks
+- ✅ Input validation (project names, frameworks, structures)
+- ⚠️ Non-interactive mode with flags *(CLI supports flags, template generation pending)*
+- ❌ Project structure preview before generation *(pending template implementation)*
+- ❌ Template file generation with placeholders *(infrastructure ready, templates pending)*
+- ❌ TypeScript/JavaScript toggle *(pending template implementation)*
+- ❌ Git initialization *(pending implementation)*
+- ❌ Package.json generation with relevant dependencies *(pending implementation)*
 
 ## 🛠️ Usage
 
@@ -93,7 +123,7 @@ skaflo preview --framework react --structure feature-based
 
 ### React (Feature-based + TypeScript)
 
-```
+```text
 my-react-app/
 ├── public/
 │   ├── index.html
@@ -132,10 +162,11 @@ my-react-app/
 ### 🎯 Phase 1: MVP (v1.0) - Q4 2025
 
 - [x] Core CLI framework
-- [x] React, Next.js, Express templates
 - [x] Interactive prompts
-- [x] Basic file generation
-- [ ] Testing & CI setup
+- [x] File generation infrastructure
+- [x] Testing & CI setup
+- [ ] React, Next.js, Express templates
+- [ ] Template file generation
 - [ ] Documentation
 - [ ] npm package publication
 
@@ -172,24 +203,24 @@ my-react-app/
 
 ### MVP Architecture
 
-```
+```text
 skaflo-cli/
 ├── src/
 │   ├── cli/
-│   │   ├── commands/
-│   │   ├── prompts/
-│   │   └── index.ts
-│   ├── templates/
-│   │   ├── react/
-│   │   ├── nextjs/
-│   │   └── express/
-│   ├── generators/
-│   │   ├── fileGenerator.ts
-│   │   ├── templateRenderer.ts
-│   │   └── projectInitializer.ts
-│   └── utils/
-├── templates/ (JSON definitions)
-└── tests/
+│   │   ├── prompts/          ✅ Interactive prompts system
+│   │   └── index.ts          ✅ Main CLI entry point
+│   ├── types/                ✅ TypeScript interfaces
+│   │   ├── cli.types.ts
+│   │   ├── generator.types.ts
+│   │   └── template.types.ts
+│   ├── utils/                ✅ Core utilities
+│   │   ├── fileSystem.ts     ✅ File operations & safety
+│   │   └── validation.ts     ✅ Input validation
+│   ├── templates/            ❌ Empty (pending implementation)
+│   ├── generators/           ❌ Empty (pending implementation)
+│   └── index.ts              ✅ Package entry point
+├── templates/                ❌ Empty (pending template definitions)
+└── tests/                    ✅ Complete test suite (28 tests)
 ```
 
 ### Key Technologies
