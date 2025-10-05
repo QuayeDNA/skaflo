@@ -23,7 +23,7 @@
     "typecheck": "node scripts/message.js typecheck-start && tsc --noEmit && node scripts/message.js typecheck-success",
     "format": "node scripts/message.js format-start && prettier --write src/**/*.ts && node scripts/message.js format-success",
     "format:check": "node scripts/message.js format-check-start && prettier --check src/**/*.ts && node scripts/message.js format-check-success",
-    "quality": "node scripts/message.js quality-start && npm run lint && npm run typecheck && npm run test && node scripts/message.js quality-success",
+    "quality": "node scripts/message.js quality-start && eslint && tsc --noEmit && jest --passWithNoTests && node scripts/message.js quality-success",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm"
   },
