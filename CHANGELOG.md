@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Current directory scaffolding** - omit project name to scaffold folders into the current directory
 - **Smart validation** - prevents overwrites for new projects, allows safe scaffolding into existing directories
 - **Enhanced CLI help text** - updated command descriptions to reflect optional project name
+- **Tree view preview** - `skaflo preview` now displays beautiful hierarchical tree structure with branches and sub-branches
+- **Improved preview visualization** - replaced flat list with proper tree characters (├──, │, └──) for better readability
 
 #### Changed
 
