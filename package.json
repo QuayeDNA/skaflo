@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "node scripts/message.js build-start && tsc && node scripts/message.js build-success",
-    "build:clean": "node scripts/message.js build-clean-start && rimraf dist && npm run build",
+    "build:clean": "node scripts/message.js build-clean-start && rimraf dist && tsc && node scripts/message.js build-success",
     "dev": "node scripts/message.js dev-start && tsc --watch",
     "test": "node scripts/message.js test-start && jest --passWithNoTests && node scripts/message.js test-success",
     "test:coverage": "node scripts/message.js test-coverage-start && jest --coverage --passWithNoTests && node scripts/message.js test-coverage-success",
