@@ -26,6 +26,11 @@ const messages = {
 };
 
 const messageKey = process.argv[2];
+
+if (!messageKey) {
+  console.log('Usage: node message.js <message-key>');
+  process.exit(1);
+}
 const message = messages[messageKey];
 
 if (message) {
