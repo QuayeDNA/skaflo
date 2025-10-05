@@ -47,6 +47,26 @@ export async function promptProjectDetails(): Promise<ProjectPrompts> {
   console.log(`   Structure: ${selectedStructure?.name || structure}`);
   console.log(`   Description: ${selectedStructure?.description || 'N/A'}`);
 
+  // Show folder preview
+  if (selectedStructure?.directories) {
+    console.log(`\n📁 Folders to be created (${selectedStructure.directories.length} total):`);
+    
+    // Create a tree-like display, limiting to first 15 folders for readability
+    const maxPreviewFolders = 15;
+    const foldersToShow = selectedStructure.directories.slice(0, maxPreviewFolders);
+    const remainingCount = selectedStructure.directories.length - maxPreviewFolders;
+    
+    foldersToShow.forEach((folder, index) => {
+      const isLast = index === foldersToShow.length - 1 && remainingCount === 0;
+      const prefix = isLast ? '└── ' : '├── ';
+      console.log(`   ${prefix}${folder}/`);
+    });
+    
+    if (remainingCount > 0) {
+      console.log(`   └── ... and ${remainingCount} more folders`);
+    }
+  }
+
   const { confirm } = await inquirer.prompt<{ confirm: boolean }>({
     type: 'confirm',
     name: 'confirm',
