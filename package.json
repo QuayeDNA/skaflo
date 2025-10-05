@@ -1,6 +1,6 @@
 {
   "name": "skaflo",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Clean folder structures. Zero boilerplate. Create organized project directories without any files - perfect for developers who want structure without assumptions.",
   "main": "dist/index.js",
   "bin": {
