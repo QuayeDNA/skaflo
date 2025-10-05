@@ -15,12 +15,15 @@ export class FolderStructureEngine implements StructureEngine {
     options: GenerationOptions,
   ): Promise<string[]> {
     const { projectName, outputPath } = options;
-    const projectPath = join(outputPath, projectName);
+    // If projectName is the special current directory marker, scaffold directly into outputPath
+    const projectPath = projectName === '__current_directory__' ? outputPath : join(outputPath, projectName);
     const createdDirectories: string[] = [];
 
-    // Create the project root directory
-    await FileSystemUtils.createDirectory(projectPath);
-    createdDirectories.push(projectPath);
+    // Only create the project root directory if we're creating a new project
+    if (projectName !== '__current_directory__') {
+      await FileSystemUtils.createDirectory(projectPath);
+      createdDirectories.push(projectPath);
+    }
 
     // Create all specified directories
     for (const directory of structure.directories) {

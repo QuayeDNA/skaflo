@@ -51,7 +51,7 @@ Every developer has been there – staring at an empty folder, wondering how to 
 - **Folder-only generation** - No files, no boilerplate, just clean structure
 - **React templates**: Feature-based (37 folders) and Component-based architectures
 - **Comprehensive validation** with error handling and safety checks
-- **97 tests passing** with 75.46% code coverage
+- **99 tests passing** with 75.46% code coverage
 - **Production ready** with TypeScript, ESLint, and Jest
 
 ### 🚫 What Skaflo Does NOT Do
@@ -91,20 +91,27 @@ Every developer has been there – staring at an empty folder, wondering how to 
 ### Interactive Mode (Recommended)
 
 ```bash
+# Create a new project in a new directory
 skaflo create my-awesome-app
+
+# Scaffold structure into current directory (NEW in v1.1.4!)
+skaflo create
 ```
 
 This launches an interactive wizard that asks you:
 
 1. **Framework**: React (more coming soon)
 2. **Structure Style**: Feature-based or Component-based
-3. **Project location**: Where to create the folder structure
+3. **Project location**: Where to create the folder structure (or current directory if no name provided)
 
 ### Non-Interactive Mode
 
 ```bash
-# Create with specific options
+# Create with specific options in new directory
 skaflo create my-app --framework react --structure feature-based
+
+# Scaffold into current directory with specific options (NEW in v1.1.4!)
+skaflo create --framework react --structure feature-based
 
 # Preview a structure
 skaflo preview --framework react --structure component-based
@@ -115,7 +122,7 @@ skaflo list
 
 ### Available Commands
 
-- `skaflo create <project-name>` - Create a new folder structure
+- `skaflo create [project-name]` - Create a new folder structure (optional name - scaffolds into current directory if omitted)
 - `skaflo list` - Show all available templates
 - `skaflo preview` - Preview folder structure before creating
 - `skaflo --version` - Show version information
@@ -276,7 +283,7 @@ skaflo/
 │   │   ├── fileSystem.ts         ✅ File operations & safety
 │   │   └── validation.ts         ✅ Input validation
 │   └── index.ts                  ✅ Package entry point
-├── tests/                        ✅ 97 tests across 8 suites
+├── tests/                        ✅ 99 tests across 8 suites
 │   ├── unit/cli/                 ✅ CLI command tests
 │   ├── unit/generators/          ✅ Generator tests
 │   ├── unit/templates/           ✅ Template registry tests
@@ -291,7 +298,7 @@ skaflo/
 - **Folder Generation**: Custom `FolderStructureEngine` (no file templating)
 - **File System**: Node.js `fs` with async/await and safety checks
 - **Validation**: Custom validation with comprehensive error handling
-- **Testing**: Jest with 97 tests and 75.46% coverage
+- **Testing**: Jest with 99 tests and 75.46% coverage
 - **Build**: TypeScript + ESLint for code quality
 
 ### Folder Structure Definition Schema
@@ -475,27 +482,45 @@ Perfect for organizing UI components, hooks, and utilities! 📚
 ```bash
 $ skaflo preview --framework react --structure feature-based
 
-📁 React Feature-based Structure (37 folders):
-├── public/
+📁 React Feature-Based folder structure preview:
+
 ├── src/
-│   ├── app/
-│   │   ├── layout/
-│   │   ├── providers/
-│   │   └── store/
-│   ├── components/
-│   │   ├── ui/
-│   │   ├── forms/
-│   │   ├── layout/
-│   │   └── shared/
 │   ├── features/
 │   │   ├── auth/
 │   │   │   ├── components/
 │   │   │   ├── hooks/
 │   │   │   ├── services/
-│   │   │   ├── stores/
 │   │   │   ├── types/
 │   │   │   └── utils/
-│   ... (and 20 more folders)
+│   │   ├── home/
+│   │   │   ├── components/
+│   │   │   ├── hooks/
+│   │   │   ├── services/
+│   │   │   ├── types/
+│   │   │   └── utils/
+│   │   └── profile/
+│   │       ├── components/
+│   │       ├── hooks/
+│   │       ├── services/
+│   │       ├── types/
+│   │       └── utils/
+│   └── shared/
+│       ├── components/
+│       ├── hooks/
+│       ├── services/
+│       ├── types/
+│       ├── utils/
+│       ├── constants/
+│       └── contexts/
+├── public/
+│   └── assets/
+│       ├── images/
+│       └── icons/
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   └── e2e/
+└── docs/
 
 Ready to create this structure? Run: skaflo create my-project
 ```

@@ -103,6 +103,49 @@ describe('ProjectFolderGenerator', () => {
       expect(result.errors[0]).toContain('already exists and is not empty');
     });
 
+    test('should scaffold into current directory when projectName is __current_directory__', async () => {
+      const currentDirOptions = {
+        ...mockOptions,
+        projectName: '__current_directory__',
+        outputPath: tempDir,
+      };
+
+      const result = await generator.generateFolders(currentDirOptions);
+
+      expect(result.success).toBe(true);
+      expect(result.errors).toHaveLength(0);
+      // Should not create a subdirectory, should scaffold directly into tempDir
+      expect(result.directoriesCreated.some((dir) => dir === tempDir)).toBe(
+        false,
+      ); // tempDir itself shouldn't be in created list
+      expect(
+        result.directoriesCreated.some((dir) =>
+          dir.startsWith(join(tempDir, 'src')),
+        ),
+      ).toBe(true);
+    });
+
+    test('should allow scaffolding into non-empty current directory with warning', async () => {
+      // Create a file in the temp directory to make it non-empty
+      await fs.promises.writeFile(
+        join(tempDir, 'existing-file.txt'),
+        'content',
+      );
+
+      const currentDirOptions = {
+        ...mockOptions,
+        projectName: '__current_directory__',
+        outputPath: tempDir,
+      };
+
+      const result = await generator.generateFolders(currentDirOptions);
+
+      expect(result.success).toBe(true);
+      expect(result.warnings).toContain(
+        `Scaffolding into non-empty directory "${tempDir}". Existing files will not be overwritten.`,
+      );
+    });
+
     test('should handle different structure types', async () => {
       const componentBasedOptions = {
         ...mockOptions,

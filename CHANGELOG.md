@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.4] - 2025-10-05
+
+### ✨ Enhanced Workflow Flexibility
+
+#### Added
+
+- **Dual-mode create command** - `skaflo create` now works with or without a project name
+- **Current directory scaffolding** - omit project name to scaffold folders into the current directory
+- **Smart validation** - prevents overwrites for new projects, allows safe scaffolding into existing directories
+- **Enhanced CLI help text** - updated command descriptions to reflect optional project name
+- **Tree view preview** - `skaflo preview` now displays beautiful hierarchical tree structure with branches and sub-branches
+- **Improved preview visualization** - replaced flat list with proper tree characters (├──, │, └──) for better readability
+
+#### Changed
+
+- **Create command signature** - `<name>` changed to `[name]` to indicate optional parameter
+- **Improved user guidance** - different welcome messages for new project vs current directory modes
+- **Better error handling** - appropriate validation for both creation modes
+
 ## [1.0.4] - 2025-10-05
 
 ### ✨ Enhanced User Experience
