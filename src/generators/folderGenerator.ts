@@ -33,7 +33,8 @@ export class ProjectFolderGenerator implements FolderGenerator {
     };
 
     try {
-      if (!this.validateProjectName(options.projectName)) {
+      // Skip validation for current directory mode
+      if (options.projectName !== '__current_directory__' && !this.validateProjectName(options.projectName)) {
         result.errors.push(`Invalid project name: ${options.projectName}`);
         return result;
       }
@@ -55,15 +56,34 @@ export class ProjectFolderGenerator implements FolderGenerator {
         return result;
       }
 
-      const projectPath = join(options.outputPath, options.projectName);
-      if (
-        (await directoryExists(projectPath)) &&
-        !(await isDirectoryEmpty(projectPath))
-      ) {
-        result.errors.push(
-          `Directory "${projectPath}" already exists and is not empty. Please choose a different project name or remove the existing directory.`,
-        );
-        return result;
+      const projectPath = options.projectName === '__current_directory__' 
+        ? options.outputPath 
+        : join(options.outputPath, options.projectName);
+      
+      if (options.projectName !== '__current_directory__') {
+        if (
+          (await directoryExists(projectPath)) &&
+          !(await isDirectoryEmpty(projectPath))
+        ) {
+          result.errors.push(
+            `Directory "${projectPath}" already exists and is not empty. Please choose a different project name or remove the existing directory.`,
+          );
+          return result;
+        }
+      } else {
+        // For current directory mode, check if output directory exists
+        if (!(await directoryExists(options.outputPath))) {
+          result.errors.push(
+            `Output directory "${options.outputPath}" does not exist.`,
+          );
+          return result;
+        }
+        // Allow scaffolding into non-empty directories but add a warning
+        if (!(await isDirectoryEmpty(options.outputPath))) {
+          result.warnings.push(
+            `Scaffolding into non-empty directory "${options.outputPath}". Existing files will not be overwritten.`,
+          );
+        }
       }
 
       const createdDirectories = await structureEngine.generateFolders(

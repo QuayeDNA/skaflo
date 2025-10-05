@@ -91,20 +91,27 @@ Every developer has been there – staring at an empty folder, wondering how to 
 ### Interactive Mode (Recommended)
 
 ```bash
+# Create a new project in a new directory
 skaflo create my-awesome-app
+
+# Scaffold structure into current directory (NEW in v1.1.4!)
+skaflo create
 ```
 
 This launches an interactive wizard that asks you:
 
 1. **Framework**: React (more coming soon)
 2. **Structure Style**: Feature-based or Component-based
-3. **Project location**: Where to create the folder structure
+3. **Project location**: Where to create the folder structure (or current directory if no name provided)
 
 ### Non-Interactive Mode
 
 ```bash
-# Create with specific options
+# Create with specific options in new directory
 skaflo create my-app --framework react --structure feature-based
+
+# Scaffold into current directory with specific options (NEW in v1.1.4!)
+skaflo create --framework react --structure feature-based
 
 # Preview a structure
 skaflo preview --framework react --structure component-based
@@ -115,7 +122,7 @@ skaflo list
 
 ### Available Commands
 
-- `skaflo create <project-name>` - Create a new folder structure
+- `skaflo create [project-name]` - Create a new folder structure (optional name - scaffolds into current directory if omitted)
 - `skaflo list` - Show all available templates
 - `skaflo preview` - Preview folder structure before creating
 - `skaflo --version` - Show version information
