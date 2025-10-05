@@ -78,7 +78,7 @@ describe('CLI Index', () => {
     expect(mockInstance.description).toHaveBeenCalledWith(
       'A powerful CLI tool that generates project folder structures for modern JavaScript/TypeScript projects.',
     );
-    expect(mockInstance.version).toHaveBeenCalledWith('1.0.0');
+    expect(mockInstance.version).toHaveBeenCalledWith('1.0.2');
   });
 
   it('should configure create, list, and preview commands', () => {
