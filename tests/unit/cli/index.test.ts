@@ -24,6 +24,7 @@ jest.mock('chalk', () => ({
   red: jest.fn((str) => str),
   gray: jest.fn((str) => str),
   dim: jest.fn((str) => str),
+  cyan: jest.fn((str) => str),
 }));
 
 jest.mock('ora', () => {
@@ -80,7 +81,10 @@ describe('CLI Index', () => {
     );
     // Read version dynamically from package.json
     const packageJson = JSON.parse(
-      require('fs').readFileSync(require('path').join(__dirname, '../../../package.json'), 'utf-8')
+      require('fs').readFileSync(
+        require('path').join(__dirname, '../../../package.json'),
+        'utf-8',
+      ),
     );
     expect(mockInstance.version).toHaveBeenCalledWith(packageJson.version);
   });

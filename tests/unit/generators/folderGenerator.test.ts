@@ -74,7 +74,7 @@ describe('ProjectFolderGenerator', () => {
       const result = await generator.generateFolders(invalidOptions);
 
       expect(result.success).toBe(false);
-      expect(result.errors[0]).toContain('Structure not found');
+      expect(result.errors[0]).toContain('not found for framework');
     });
 
     test('should handle invalid structure', async () => {
@@ -86,7 +86,7 @@ describe('ProjectFolderGenerator', () => {
       const result = await generator.generateFolders(invalidOptions);
 
       expect(result.success).toBe(false);
-      expect(result.errors[0]).toContain('Structure not found');
+      expect(result.errors[0]).toContain('not found for framework');
     });
 
     test('should handle existing non-empty directory', async () => {

@@ -50,7 +50,7 @@ export class ProjectFolderGenerator implements FolderGenerator {
 
       if (!structure) {
         result.errors.push(
-          `Structure not found for framework: ${options.framework}, structure: ${options.structure}`,
+          `Structure "${options.structure}" not found for framework "${options.framework}". Use "skaflo list" to see available options.`,
         );
         return result;
       }
@@ -61,7 +61,7 @@ export class ProjectFolderGenerator implements FolderGenerator {
         !(await isDirectoryEmpty(projectPath))
       ) {
         result.errors.push(
-          `Directory ${projectPath} already exists and is not empty`,
+          `Directory "${projectPath}" already exists and is not empty. Please choose a different project name or remove the existing directory.`,
         );
         return result;
       }
