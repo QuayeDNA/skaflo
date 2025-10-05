@@ -24,6 +24,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Improved user guidance** - different welcome messages for new project vs current directory modes
 - **Better error handling** - appropriate validation for both creation modes
 
+## [1.1.5] - 2025-10-05
+
+### 🐛 Bug Fixes
+
+#### Fixed
+
+- **Tree view consistency** - Fixed folder preview in `skaflo create` command to display proper tree structure instead of flat list
+- **UI consistency** - Both `skaflo preview` and `skaflo create` now show identical tree view formatting
+- **User experience** - Eliminated confusion between different folder preview formats across CLI commands
+
 ## [1.0.4] - 2025-10-05
 
 ### ✨ Enhanced User Experience
