@@ -5,6 +5,9 @@ module.exports = [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    ignores: ['dist/', 'node_modules/', 'scripts/', '*.js'],
+  },
+  {
     files: ['src/**/*.ts'],
     languageOptions: {
       ecmaVersion: 2021,
@@ -23,8 +26,5 @@ module.exports = [
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
     },
-  },
-  {
-    ignores: ['dist/', 'node_modules/', '*.js'],
   },
 ];

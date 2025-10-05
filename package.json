@@ -1,6 +1,6 @@
 {
   "name": "skaflo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Clean folder structures. Zero boilerplate. Create organized project directories without any files - perfect for developers who want structure without assumptions.",
   "main": "dist/index.js",
   "bin": {
@@ -12,13 +12,18 @@
     "pnpm": ">=8.0.0"
   },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "test": "jest --passWithNoTests",
-    "test:coverage": "jest --coverage --passWithNoTests",
-    "lint": "eslint",
-    "lint:fix": "eslint src/**/*.ts --fix",
-    "format": "prettier --write src/**/*.ts",
+    "build": "node scripts/message.js build-start && tsc && node scripts/message.js build-success",
+    "build:clean": "node scripts/message.js build-clean-start && rimraf dist && npm run build",
+    "dev": "node scripts/message.js dev-start && tsc --watch",
+    "test": "node scripts/message.js test-start && jest --passWithNoTests && node scripts/message.js test-success",
+    "test:coverage": "node scripts/message.js test-coverage-start && jest --coverage --passWithNoTests && node scripts/message.js test-coverage-success",
+    "test:watch": "node scripts/message.js test-watch-start && jest --watch --passWithNoTests",
+    "lint": "node scripts/message.js lint-start && eslint && node scripts/message.js lint-success",
+    "lint:fix": "node scripts/message.js lint-fix-start && eslint src/**/*.ts --fix && node scripts/message.js lint-fix-success",
+    "typecheck": "node scripts/message.js typecheck-start && tsc --noEmit && node scripts/message.js typecheck-success",
+    "format": "node scripts/message.js format-start && prettier --write src/**/*.ts && node scripts/message.js format-success",
+    "format:check": "node scripts/message.js format-check-start && prettier --check src/**/*.ts && node scripts/message.js format-check-success",
+    "quality": "node scripts/message.js quality-start && npm run lint && npm run typecheck && npm run test && node scripts/message.js quality-success",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm"
   },
@@ -70,6 +75,7 @@
     "husky": "^9.1.7",
     "jest": "^30.1.3",
     "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
     "ts-jest": "^29.4.4",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.44.1"
