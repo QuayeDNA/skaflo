@@ -5,6 +5,13 @@ import { promptProjectDetails } from './prompts';
 import { folderGenerator } from '../generators/folderGenerator';
 import { structureRegistry } from '../templates/registry';
 import { GenerationOptions } from '../types/template.types';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+// Read version from package.json
+const packageJson = JSON.parse(
+  readFileSync(join(__dirname, '../../package.json'), 'utf-8')
+);
 
 interface CreateCommandOptions {
   framework?: string;
@@ -19,7 +26,7 @@ program
   .description(
     'A powerful CLI tool that generates project folder structures for modern JavaScript/TypeScript projects.',
   )
-  .version('1.0.0');
+  .version(packageJson.version);
 
 program
   .command('create')
