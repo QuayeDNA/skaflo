@@ -10,8 +10,19 @@ import { join } from 'path';
 
 // Read version from package.json
 const packageJson = JSON.parse(
-  readFileSync(join(__dirname, '../../package.json'), 'utf-8')
+  readFileSync(join(__dirname, '../../package.json'), 'utf-8'),
 );
+
+// ASCII Art for Skaflo
+const SKAFLO_ASCII =
+  chalk.cyan(`
+   ███████╗██╗  ██╗ █████╗ ███████╗██╗      ██████╗ 
+   ██╔════╝██║ ██╔╝██╔══██╗██╔════╝██║     ██╔═══██╗
+   ███████╗█████╔╝ ███████║█████╗  ██║     ██║   ██║
+   ╚════██║██╔═██╗ ██╔══██║██╔══╝  ██║     ██║   ██║
+   ███████║██║  ██╗██║  ██║██║     ███████╗╚██████╔╝
+   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚══════╝ ╚═════╝ 
+`) + chalk.gray(`                           v${packageJson.version}`);
 
 interface CreateCommandOptions {
   framework?: string;
@@ -26,7 +37,11 @@ program
   .description(
     'A powerful CLI tool that generates project folder structures for modern JavaScript/TypeScript projects.',
   )
-  .version(packageJson.version);
+  .version(packageJson.version)
+  .action(() => {
+    console.log(SKAFLO_ASCII);
+    program.help();
+  });
 
 program
   .command('create')
@@ -37,6 +52,8 @@ program
   .option('-o, --output <output>', 'output directory', process.cwd())
   .action(async (name: string, options: CreateCommandOptions) => {
     try {
+      // Display ASCII art
+      console.log(SKAFLO_ASCII);
       let generationOptions: GenerationOptions;
 
       if (options.framework && options.structure) {
@@ -68,13 +85,13 @@ program
         };
       }
 
-      const spinner = ora('Generating folder structure...').start();
+      const spinner = ora('🏗️  Generating your project structure...').start();
 
       const result = await folderGenerator.generateFolders(generationOptions);
 
       if (result.success) {
         spinner.succeed(
-          chalk.green('Project folder structure generated successfully!'),
+          chalk.green('🎉 Project structure created successfully!'),
         );
 
         console.log(chalk.blue('\n📂 Directories created:'));
@@ -116,17 +133,17 @@ program
 
     frameworks.forEach((framework) => {
       console.log(
-        chalk.green(
-          `${framework.charAt(0).toUpperCase() + framework.slice(1)}:`,
+        chalk.cyan(
+          `🏗️  ${framework.charAt(0).toUpperCase() + framework.slice(1)}:`,
         ),
       );
       const frameworkStructures =
         structureRegistry.getStructuresByFramework(framework);
       frameworkStructures.forEach((structure) => {
+        console.log(chalk.green(`  ✓ ${structure.name}`));
         console.log(
-          chalk.gray(`  ✓ ${structure.name} (${structure.structure})`),
+          chalk.gray(`    ${structure.structure} • ${structure.description}`),
         );
-        console.log(chalk.dim(`    ${structure.description}`));
       });
       console.log();
     });

@@ -5,11 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2025-10-05
+
+### ✨ Enhanced User Experience
+
+#### Added
+
+- **ASCII art logo** displayed when running `skaflo` or `skaflo create` commands
+- **Version display** in small text below the ASCII logo
+- **Visual branding** to improve CLI user experience
+- **Enhanced progress indicators** with emojis and better messaging
+- **Improved list command formatting** with better visual hierarchy
+
+#### Changed
+
+- **Better error messages** with more helpful suggestions and context
+- **Enhanced success messages** with celebratory emojis
+- **Improved CLI feedback** throughout the user journey
+
 ## [1.0.3] - 2025-10-05
 
 ### ✨ Enhanced User Experience
 
 #### Added
+
 - **Enhanced folder preview** in interactive mode showing actual directory structure before creation
 - **Detailed folder tree display** with count of folders to be created
 - **Truncated preview** for large structures (shows first 15 folders + count of remaining)
@@ -19,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 🐛 Bug Fixes
 
 #### Fixed
+
 - **CLI version display** now reads dynamically from package.json instead of hardcoded value
 
 ## [1.0.1] - 2025-10-05
@@ -26,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### ✨ Enhanced Developer Experience
 
 #### Added
+
 - **Enhanced npm scripts** with visual feedback and success/failure messages
 - **New scripts**:
   - `npm run typecheck` - Type checking with feedback messages
@@ -37,21 +58,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Visual indicators** with emojis for better script feedback
 
 #### Fixed
+
 - **npm configuration warnings** by separating PNPM-specific configs to `.pnpmrc`
 - **Cross-platform compatibility** for development scripts
 - **ESLint configuration** to properly ignore scripts directory
 
 #### Changed
+
 - **Improved feedback** for all development commands (build, test, lint, etc.)
 - **Better developer workflow** with clear success/failure indicators
 
 #### Technical Details
+
 - Added `scripts/message.js` utility for consistent cross-platform messaging
 - Updated ESLint config to exclude scripts directory
 - Added `rimraf` dev dependency for clean builds
 - Separated `.npmrc` and `.pnpmrc` for package manager compatibility
 
 ### 🔧 Developer Experience Impact
+
 - **Clear feedback** on command success/failure
 - **Consistent messaging** across all platforms (Windows, macOS, Linux)
 - **Visual indicators** make development workflow more intuitive
