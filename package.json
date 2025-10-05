@@ -19,7 +19,7 @@
     "test:coverage": "node scripts/message.js test-coverage-start && jest --coverage --passWithNoTests && node scripts/message.js test-coverage-success",
     "test:watch": "node scripts/message.js test-watch-start && jest --watch --passWithNoTests",
     "lint": "node scripts/message.js lint-start && eslint && node scripts/message.js lint-success",
-    "lint:fix": "node scripts/message.js lint-fix-start && eslint src/**/*.ts --fix && node scripts/message.js lint-fix-success",
+    "lint:fix": "node scripts/message.js lint-fix-start && eslint --fix && node scripts/message.js lint-fix-success",
     "typecheck": "node scripts/message.js typecheck-start && tsc --noEmit && node scripts/message.js typecheck-success",
     "format": "node scripts/message.js format-start && prettier --write src/**/*.ts && node scripts/message.js format-success",
     "format:check": "node scripts/message.js format-check-start && prettier --check src/**/*.ts && node scripts/message.js format-check-success",
