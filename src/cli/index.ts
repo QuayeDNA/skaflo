@@ -14,9 +14,15 @@ const packageJson = JSON.parse(
 );
 
 // ASCII Art for Skaflo
-const SKAFLO_ASCII = chalk.cyan(`
-   SKAFLO
-`) + chalk.gray(`   v${packageJson.version}`);
+const SKAFLO_ASCII =
+  chalk.cyan(`
+   ███████╗██╗  ██╗ █████╗ ███████╗██╗      ██████╗ 
+   ██╔════╝██║ ██╔╝██╔══██╗██╔════╝██║     ██╔═══██╗
+   ███████╗█████╔╝ ███████║█████╗  ██║     ██║   ██║
+   ╚════██║██╔═██╗ ██╔══██║██╔══╝  ██║     ██║   ██║
+   ███████║██║  ██╗██║  ██║██║     ███████╗╚██████╔╝
+   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚══════╝ ╚═════╝ 
+`) + chalk.gray(`                           v${packageJson.version}`);
 
 interface CreateCommandOptions {
   framework?: string;
