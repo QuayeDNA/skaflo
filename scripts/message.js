@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 
 const messages = {
   'lint-start': '🔍 Linting code...',
