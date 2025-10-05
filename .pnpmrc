@@ -1,0 +1,15 @@
+# PNPM-specific configuration
+auto-install-peers: true
+strict-peer-dependencies: false
+shamefully-hoist: false
+node-linker: isolated
+
+# Workspace settings for PNPM
+link-workspace-packages: true
+prefer-workspace-packages: true
+
+# Common settings (inherits from .npmrc)
+registry: https://registry.npmjs.org/
+audit-level: moderate
+fetch-retries: 3
+fetch-timeout: 60000

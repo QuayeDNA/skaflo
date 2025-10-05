@@ -5,6 +5,44 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-10-05
+
+### ✨ Enhanced Developer Experience
+
+#### Added
+- **Enhanced npm scripts** with visual feedback and success/failure messages
+- **New scripts**:
+  - `npm run typecheck` - Type checking with feedback messages
+  - `npm run build:clean` - Clean build directory before building
+  - `npm run test:watch` - Watch mode for tests
+  - `npm run format:check` - Check code formatting without fixing
+  - `npm run quality` - Run all quality checks (lint, typecheck, test) in sequence
+- **Cross-platform messaging system** using Node.js script for consistent output
+- **Visual indicators** with emojis for better script feedback
+
+#### Fixed
+- **npm configuration warnings** by separating PNPM-specific configs to `.pnpmrc`
+- **Cross-platform compatibility** for development scripts
+- **ESLint configuration** to properly ignore scripts directory
+
+#### Changed
+- **Improved feedback** for all development commands (build, test, lint, etc.)
+- **Better developer workflow** with clear success/failure indicators
+
+#### Technical Details
+- Added `scripts/message.js` utility for consistent cross-platform messaging
+- Updated ESLint config to exclude scripts directory
+- Added `rimraf` dev dependency for clean builds
+- Separated `.npmrc` and `.pnpmrc` for package manager compatibility
+
+### 🔧 Developer Experience Impact
+- **Clear feedback** on command success/failure
+- **Consistent messaging** across all platforms (Windows, macOS, Linux)
+- **Visual indicators** make development workflow more intuitive
+- **Reduced confusion** with proper command completion messages
+
+---
+
 ## [1.0.0] - 2025-10-04
 
 ### 🎯 MAJOR TRANSFORMATION: File Generation → Folder-Only Structure Generator
