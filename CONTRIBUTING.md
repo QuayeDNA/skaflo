@@ -62,14 +62,16 @@ pnpm build
 skaflo/
 ├── src/
 │   ├── cli/                 # CLI commands and prompts
-│   ├── types/              # TypeScript type definitions
-│   ├── utils/              # Utility functions
-│   ├── templates/          # Template definitions (future)
-│   └── generators/         # Code generators (future)
-├── tests/                  # Test files
-│   └── unit/              # Unit tests
-├── .github/               # GitHub workflows and templates
-└── docs/                  # Documentation
+│   ├── generators/          # Folder structure generators
+│   ├── templates/           # Template definitions and registry
+│   ├── types/               # TypeScript type definitions
+│   └── utils/               # Utility functions
+├── templates/               # Template folder structures (JSON)
+├── tests/                   # Test files
+│   └── unit/               # Unit tests
+├── docs/                   # Documentation
+├── .github/                # GitHub workflows and templates
+└── examples/               # Usage examples
 ```
 
 ## 📝 Pull Request Process
@@ -90,7 +92,7 @@ skaflo/
 
 Use conventional commit format:
 
-```
+```text
 type(scope): description
 
 [optional body]
@@ -110,7 +112,7 @@ type(scope): description
 
 **Examples:**
 
-```
+```text
 feat(cli): add interactive project structure selection
 fix(validation): resolve project name validation edge case
 docs(readme): update installation instructions

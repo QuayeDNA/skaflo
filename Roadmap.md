@@ -1,104 +1,43 @@
 # Skaflo Development Roadmap 🚀
 
-_Complete development roadmap showing progress from conception to folder-only structure generator_
+A focused CLI tool for generating clean folder structures without boilerplate files.
 
-## ✅ COMPLETED: Core Transformation (October 2025)
+## ✅ Phase 1: Core Functionality (v1.0) - COMPLETE
 
-### 🎯 Major Architectural Shift - COMPLETED
+- [x] **Complete CLI framework** with interactive prompts
+- [x] **Folder-only generation** system
+- [x] **React templates** (Feature-based & Component-based)
+- [x] **Comprehensive validation** and error handling
+- [x] **97 tests** with 75.46% coverage
+- [x] **Production ready** TypeScript build
 
-**Decision**: Transform Skaflo from file generation to folder-only structure scaffolding
+## 🎯 Phase 2: Template Expansion (v1.5) - Q1 2026
 
-**Reasoning**:
+- [ ] **Vue.js & Nuxt** folder structures
+- [ ] **Next.js** App Router and Pages Router structures
+- [ ] **Express/Node.js** layered and MVC architectures
+- [ ] **Angular** standalone and module-based structures
+- [ ] **Custom template definitions** - JSON-based template system
 
-- Users want clean project organization without opinionated file content
-- Folder structures provide value without assumptions about code style
-- Faster, simpler, and more focused tool
+## 🔥 Phase 3: Advanced Features (v2.0) - Q1.5 2026
 
-### ✅ Core Infrastructure - COMPLETED
+- [ ] **Monorepo structures** (Turborepo, Nx, Lerna)
+- [ ] **Backend frameworks** (NestJS, Fastify, Koa)
+- [ ] **Mobile frameworks** (React Native, Flutter project structure)
+- [ ] **VS Code extension** - Generate structures directly in editor
+- [ ] **Configuration file support** (`.skaflorc`)
 
-1. **Project Foundation** ✅
-   - ✅ Git repository with proper branch management
-   - ✅ TypeScript + Node.js project structure
-   - ✅ ESLint + Jest configuration
-   - ✅ Husky pre-commit hooks
-   - ✅ CI/CD with GitHub Actions
+## 🌟 Phase 4: Ecosystem & Community (v2.5) - Q2 2026
 
-2. **CLI Framework** ✅
-   - ✅ Commander.js command structure
-   - ✅ Interactive prompts with Inquirer.js
-   - ✅ 3 working commands: `create`, `list`, `preview`
-   - ✅ Non-interactive mode with flags
-   - ✅ Comprehensive error handling
+- [ ] **Template marketplace** - Community-contributed templates
+- [ ] **Template validation** and quality scoring
+- [ ] **Organization templates** - Share team-specific structures
+- [ ] **Template versioning** and migration tools
+- [ ] **Analytics** - Popular patterns and usage insights
 
-3. **Core Systems** ✅
-   - ✅ `FolderStructureEngine` - Custom folder generation system
-   - ✅ `ProjectFolderGenerator` - Validation and generation orchestrator
-   - ✅ `StructureRegistry` - Template lookup and management
-   - ✅ File system utilities with safety checks
-   - ✅ Input validation and sanitization
+---
 
-### ✅ Template System - COMPLETED
-
-4. **React Framework Support** ✅
-   - ✅ Feature-based structure (37 folders)
-   - ✅ Component-based structure (25 folders)
-   - ✅ Comprehensive folder hierarchies
-   - ✅ No file generation - folders only
-
-5. **Template Infrastructure** ✅
-   - ✅ `StructureRegistry` for template lookup
-   - ✅ JSON-based folder structure definitions
-   - ✅ Framework and architecture validation
-   - ✅ Extensible system for future templates
-
-### ✅ Quality Assurance - COMPLETED
-
-6. **Testing Coverage** ✅
-   - ✅ 97 tests passing across 8 test suites
-   - ✅ 75.46% code coverage
-   - ✅ CLI command testing with mocking
-   - ✅ Generator and validation testing
-   - ✅ Template registry testing
-
-7. **Code Quality** ✅
-   - ✅ TypeScript compilation with strict mode
-   - ✅ ESLint compliance with zero errors
-   - ✅ Comprehensive type safety
-   - ✅ Error handling and user feedback
-
-### ✅ Local Validation - COMPLETED
-
-8. **Production Testing** ✅
-   - ✅ Global PNPM installation working
-   - ✅ CLI commands functional: `version`, `help`, `list`, `preview`, `create`
-   - ✅ Successfully created 37-directory React structure
-   - ✅ Error handling tested with edge cases
-   - ✅ User experience validated
-
-### ✅ Git & Deployment - COMPLETED
-
-9. **Version Control** ✅
-   - ✅ Feature branch `feature/react-template-generation`
-   - ✅ Comprehensive commit with detailed changes
-   - ✅ Successfully pushed to remote repository
-   - ✅ Pull request ready for review
-   - List required dependencies
-   - Create placeholder files
-
-10. **React Template Files**
-    - `templates/files/react/feature-based/`
-    - `App.tsx.hbs` template
-    - `main.tsx.hbs` template
-    - Component templates
-    - Hook templates
-    - Service templates
-
-#### Day 3-4: React Component-Based Template
-
-19. **Create React Component-Based Definition**
-    - `templates/react/component-based.json`
-    - Traditional components/pages/utils structure
-    - Dependencies and scripts
+_For detailed development progress and internal notes, see the [development archive](development-archive.md)._ - Dependencies and scripts
 
 20. **Component-Based Template Files**
     - Corresponding template files
@@ -152,7 +91,7 @@ _Complete development roadmap showing progress from conception to folder-only st
 
 ## 🔮 FUTURE PLANS
 
-### 🎯 Phase 2: Template Expansion (v1.5) - Q1 2025
+### 🎯 Phase 2: Template Expansion (v1.5) - Q1 2026
 
 1. **Vue.js & Nuxt Support** 🚧
    - Vue 3 Composition API structure
@@ -178,7 +117,7 @@ _Complete development roadmap showing progress from conception to folder-only st
    - Feature module organization
    - Shared/core module patterns
 
-### 🔥 Phase 3: Advanced Features (v2.0) - Q2 2025
+### 🔥 Phase 3: Advanced Features (v2.0) - Q1.5 2026
 
 1. **Backend Framework Templates** 🚧
    - NestJS modular architecture
@@ -204,7 +143,7 @@ _Complete development roadmap showing progress from conception to folder-only st
    - Folder structure preview in explorer
    - Template selection within editor
 
-### 🌟 Phase 4: Ecosystem & Community (v2.5) - Q3 2025
+### 🌟 Phase 4: Ecosystem & Community (v2.5) - Q2 2026
 
 1. **Custom Template System** 🚧
    - JSON-based template definitions
@@ -327,5 +266,5 @@ AnalyticsEngine → Usage tracking and insights
 
 ---
 
-_Last Updated: October 4, 2025_  
+_Last Updated: October 4, 2025_
 _Status: v1.0 Complete - Ready for Community_
