@@ -11,11 +11,7 @@ describe('StructureRegistry', () => {
     description: 'A test folder structure',
     framework: 'test',
     structure: 'basic',
-    directories: [
-      'src',
-      'src/components',
-      'tests',
-    ],
+    directories: ['src', 'src/components', 'tests'],
   };
 
   beforeEach(() => {
@@ -60,8 +56,16 @@ describe('StructureRegistry', () => {
 
   describe('getStructuresByFramework', () => {
     test('should return structures for specific framework', () => {
-      const reactStructure = { ...mockStructure, id: 'react-basic', framework: 'react' };
-      const vueStructure = { ...mockStructure, id: 'vue-basic', framework: 'vue' };
+      const reactStructure = {
+        ...mockStructure,
+        id: 'react-basic',
+        framework: 'react',
+      };
+      const vueStructure = {
+        ...mockStructure,
+        id: 'vue-basic',
+        framework: 'vue',
+      };
 
       cleanRegistry.registerStructure(reactStructure);
       cleanRegistry.registerStructure(vueStructure);
@@ -80,13 +84,19 @@ describe('StructureRegistry', () => {
   describe('getStructureByFrameworkAndType', () => {
     test('should return structure by framework and structure type', () => {
       cleanRegistry.registerStructure(mockStructure);
-      const retrieved = cleanRegistry.getStructureByFrameworkAndType('test', 'basic');
+      const retrieved = cleanRegistry.getStructureByFrameworkAndType(
+        'test',
+        'basic',
+      );
       expect(retrieved).toEqual(mockStructure);
     });
 
     test('should return undefined for non-matching criteria', () => {
       cleanRegistry.registerStructure(mockStructure);
-      const retrieved = cleanRegistry.getStructureByFrameworkAndType('test', 'advanced');
+      const retrieved = cleanRegistry.getStructureByFrameworkAndType(
+        'test',
+        'advanced',
+      );
       expect(retrieved).toBeUndefined();
     });
   });
@@ -111,8 +121,16 @@ describe('StructureRegistry', () => {
 
   describe('getAvailableFrameworks', () => {
     test('should return unique frameworks', () => {
-      const reactStructure1 = { ...mockStructure, id: 'react1', framework: 'react' };
-      const reactStructure2 = { ...mockStructure, id: 'react2', framework: 'react' };
+      const reactStructure1 = {
+        ...mockStructure,
+        id: 'react1',
+        framework: 'react',
+      };
+      const reactStructure2 = {
+        ...mockStructure,
+        id: 'react2',
+        framework: 'react',
+      };
       const vueStructure = { ...mockStructure, id: 'vue1', framework: 'vue' };
 
       cleanRegistry.registerStructure(reactStructure1);
@@ -133,9 +151,23 @@ describe('StructureRegistry', () => {
 
   describe('getAvailableStructures', () => {
     test('should return structure types for specific framework', () => {
-      const basicReact = { ...mockStructure, framework: 'react', structure: 'basic' };
-      const advancedReact = { ...mockStructure, id: 'react-advanced', framework: 'react', structure: 'advanced' };
-      const basicVue = { ...mockStructure, id: 'vue-basic', framework: 'vue', structure: 'basic' };
+      const basicReact = {
+        ...mockStructure,
+        framework: 'react',
+        structure: 'basic',
+      };
+      const advancedReact = {
+        ...mockStructure,
+        id: 'react-advanced',
+        framework: 'react',
+        structure: 'advanced',
+      };
+      const basicVue = {
+        ...mockStructure,
+        id: 'vue-basic',
+        framework: 'vue',
+        structure: 'basic',
+      };
 
       cleanRegistry.registerStructure(basicReact);
       cleanRegistry.registerStructure(advancedReact);
@@ -166,19 +198,138 @@ describe('StructureRegistry', () => {
   describe('pre-registered structures', () => {
     test('should have React structures registered by default', () => {
       const reactStructures = registry.getStructuresByFramework('react');
-      expect(reactStructures.length).toBeGreaterThan(0);
+      expect(reactStructures.length).toBe(4);
+    });
+
+    test('should have Vue structures registered by default', () => {
+      const vueStructures = registry.getStructuresByFramework('vue');
+      expect(vueStructures.length).toBe(4);
+    });
+
+    test('should have Next.js structures registered by default', () => {
+      const nextjsStructures = registry.getStructuresByFramework('nextjs');
+      expect(nextjsStructures.length).toBe(4);
+    });
+
+    test('should have Angular structures registered by default', () => {
+      const angularStructures = registry.getStructuresByFramework('angular');
+      expect(angularStructures.length).toBe(3);
+    });
+
+    test('should have Express structures registered by default', () => {
+      const expressStructures = registry.getStructuresByFramework('express');
+      expect(expressStructures.length).toBe(3);
+    });
+
+    test('should have 18 total templates registered', () => {
+      const allStructures = registry.getAllStructures();
+      expect(allStructures.length).toBe(18);
+    });
+
+    test('should have 5 frameworks available', () => {
+      const frameworks = registry.getAvailableFrameworks();
+      expect(frameworks.length).toBe(5);
+      expect(frameworks).toContain('react');
+      expect(frameworks).toContain('vue');
+      expect(frameworks).toContain('nextjs');
+      expect(frameworks).toContain('angular');
+      expect(frameworks).toContain('express');
     });
 
     test('should have feature-based React structure', () => {
-      const structure = registry.getStructureByFrameworkAndType('react', 'feature-based');
+      const structure = registry.getStructureByFrameworkAndType(
+        'react',
+        'feature-based',
+      );
       expect(structure).toBeDefined();
       expect(structure?.name).toContain('Feature-Based');
     });
 
     test('should have component-based React structure', () => {
-      const structure = registry.getStructureByFrameworkAndType('react', 'component-based');
+      const structure = registry.getStructureByFrameworkAndType(
+        'react',
+        'component-based',
+      );
       expect(structure).toBeDefined();
       expect(structure?.name).toContain('Component-Based');
+    });
+
+    test('should have Vue Composition API structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'vue',
+        'composition-api',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('Composition API');
+    });
+
+    test('should have Nuxt 3 structure', () => {
+      const structure = registry.getStructureByFrameworkAndType('vue', 'nuxt3');
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('Nuxt 3');
+    });
+
+    test('should have Next.js App Router structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'nextjs',
+        'app-router',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('App Router');
+    });
+
+    test('should have Next.js Pages Router structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'nextjs',
+        'pages-router',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('Pages Router');
+    });
+
+    test('should have Angular Standalone structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'angular',
+        'standalone',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('Standalone');
+    });
+
+    test('should have Angular Feature-based structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'angular',
+        'feature-based',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('Feature-Based');
+    });
+
+    test('should have Express Layered structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'express',
+        'layered',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('Layered');
+    });
+
+    test('should have Express MVC structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'express',
+        'mvc',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('MVC');
+    });
+
+    test('should have Express Feature-based structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'express',
+        'feature-based',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('Feature-Based');
     });
   });
 });
