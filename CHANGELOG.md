@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.6] - 2025-10-06
+
+### 📚 Documentation Improvements
+
+#### Added
+
+- **Comprehensive documentation structure** - Created dedicated `docs/` folder with detailed guides
+- **API reference documentation** - Complete CLI command reference with examples and exit codes
+- **Template documentation** - Detailed guide for available templates and folder structures
+- **Troubleshooting guide** - Common issues, solutions, and FAQ for users
+- **Architecture documentation** - Technical implementation details and system overview
+
+#### Changed
+
+- **README restructuring** - Reduced from 542 to 283 lines by moving detailed content to appropriate docs
+- **Roadmap reorganization** - Moved roadmap phases from README to dedicated Roadmap.md
+- **Contributing guidelines** - Updated project structure diagram to match current codebase
+
+## [1.1.5] - 2025-10-05log
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
 ## [1.1.4] - 2025-10-05
 
 ### ✨ Enhanced Workflow Flexibility
@@ -203,7 +228,7 @@ This is a complete architectural transformation of Skaflo from a file generation
 
 #### File Structure Changes
 
-```
+```text
 Added:
 ├── src/generators/
 │   ├── templateEngine.ts       # Folder structure generation engine
