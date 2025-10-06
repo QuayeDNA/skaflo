@@ -89,12 +89,406 @@ my-react-app/
     └── fixtures/
 ```
 
+### Vue Framework
+
+#### Vue 3 Composition API (31 folders)
+
+Modern Vue 3 application with Composition API and best practices for 2025.
+
+**Structure:**
+
+```text
+my-vue-app/
+├── public/
+│   └── assets/
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   └── styles/
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── common/
+│   │   └── layout/
+│   ├── composables/
+│   ├── stores/
+│   ├── views/
+│   ├── router/
+│   ├── services/
+│   │   └── api/
+│   ├── utils/
+│   │   ├── helpers/
+│   │   └── validators/
+│   ├── types/
+│   ├── constants/
+│   └── plugins/
+└── tests/
+    ├── unit/
+    │   ├── components/
+    │   ├── composables/
+    │   └── stores/
+    ├── e2e/
+    └── docs/
+```
+
+#### Nuxt 3 App Router (31 folders)
+
+Nuxt 3 application with App Router, server-side rendering, and modern architecture.
+
+**Structure:**
+
+```text
+my-nuxt-app/
+├── assets/
+│   ├── css/
+│   ├── images/
+│   └── icons/
+├── components/
+│   ├── ui/
+│   ├── common/
+│   └── layout/
+├── composables/
+├── layouts/
+├── middleware/
+├── pages/
+│   ├── auth/
+│   └── dashboard/
+├── plugins/
+├── public/
+│   └── assets/
+├── server/
+│   ├── api/
+│   ├── middleware/
+│   ├── routes/
+│   └── utils/
+├── stores/
+├── types/
+├── utils/
+│   ├── helpers/
+│   └── validators/
+└── tests/
+    ├── unit/
+    ├── e2e/
+    └── docs/
+```
+
+### Next.js Framework
+
+#### Next.js 15 App Router (45 folders)
+
+Next.js 15 with App Router, server components, and route groups for modern web applications.
+
+**Structure:**
+
+```text
+my-next-app/
+├── public/
+│   └── assets/
+│       ├── images/
+│       └── icons/
+├── src/
+│   ├── app/
+│   │   ├── (auth)/
+│   │   │   ├── login/
+│   │   │   └── register/
+│   │   ├── (dashboard)/
+│   │   │   ├── analytics/
+│   │   │   └── settings/
+│   │   └── api/
+│   │       ├── auth/
+│   │       └── users/
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── shared/
+│   │   ├── dashboard/
+│   │   └── auth/
+│   ├── lib/
+│   │   ├── auth/
+│   │   └── db/
+│   ├── services/
+│   │   └── api/
+│   ├── hooks/
+│   ├── contexts/
+│   ├── utils/
+│   │   ├── helpers/
+│   │   └── validators/
+│   ├── types/
+│   ├── constants/
+│   └── styles/
+└── tests/
+    ├── unit/
+    ├── integration/
+    ├── e2e/
+    └── docs/
+```
+
+#### Next.js Pages Router (38 folders)
+
+Traditional Next.js with Pages Router architecture for backward compatibility.
+
+**Structure:**
+
+```text
+my-next-app/
+├── public/
+│   └── assets/
+│       ├── images/
+│       └── icons/
+├── src/
+│   ├── pages/
+│   │   ├── api/
+│   │   │   ├── auth/
+│   │   │   └── users/
+│   │   ├── auth/
+│   │   └── dashboard/
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── common/
+│   │   └── layout/
+│   ├── hooks/
+│   ├── services/
+│   │   └── api/
+│   ├── utils/
+│   │   ├── helpers/
+│   │   └── validators/
+│   ├── lib/
+│   │   ├── auth/
+│   │   └── db/
+│   ├── contexts/
+│   ├── types/
+│   ├── constants/
+│   └── styles/
+└── tests/
+    ├── unit/
+    ├── integration/
+    ├── e2e/
+    └── docs/
+```
+
+### Angular Framework
+
+#### Angular 18 Standalone (35 folders)
+
+Angular 18 with standalone components architecture - no NgModules needed.
+
+**Structure:**
+
+```text
+my-angular-app/
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── core/
+│   │   │   ├── services/
+│   │   │   ├── guards/
+│   │   │   ├── interceptors/
+│   │   │   └── models/
+│   │   ├── shared/
+│   │   │   ├── components/
+│   │   │   ├── directives/
+│   │   │   ├── pipes/
+│   │   │   └── utils/
+│   │   └── features/
+│   │       ├── home/
+│   │       │   ├── components/
+│   │       │   └── services/
+│   │       ├── auth/
+│   │       │   ├── components/
+│   │       │   ├── services/
+│   │       │   └── guards/
+│   │       └── dashboard/
+│   │           ├── components/
+│   │           └── services/
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   └── styles/
+│   └── environments/
+└── tests/
+    ├── unit/
+    ├── integration/
+    ├── e2e/
+    └── docs/
+```
+
+#### Angular Feature-Based (47 folders)
+
+Angular 18 with feature-based modular architecture for enterprise applications.
+
+**Structure:**
+
+```text
+my-angular-app/
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── core/
+│   │   │   ├── services/
+│   │   │   ├── guards/
+│   │   │   ├── interceptors/
+│   │   │   ├── models/
+│   │   │   └── constants/
+│   │   ├── shared/
+│   │   │   ├── components/
+│   │   │   │   ├── ui/
+│   │   │   │   └── layout/
+│   │   │   ├── directives/
+│   │   │   ├── pipes/
+│   │   │   ├── utils/
+│   │   │   └── validators/
+│   │   └── features/
+│   │       ├── home/
+│   │       │   ├── components/
+│   │       │   ├── services/
+│   │       │   └── models/
+│   │       ├── auth/
+│   │       │   ├── components/
+│   │       │   ├── services/
+│   │       │   ├── guards/
+│   │       │   └── models/
+│   │       ├── dashboard/
+│   │       │   ├── components/
+│   │       │   ├── services/
+│   │       │   └── models/
+│   │       └── profile/
+│   │           ├── components/
+│   │           ├── services/
+│   │           └── models/
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   ├── styles/
+│   │   └── fonts/
+│   └── environments/
+└── tests/
+    ├── unit/
+    ├── integration/
+    ├── e2e/
+    └── docs/
+```
+
+### Express/Node.js Framework
+
+#### Express Layered Architecture (26 folders)
+
+Express application with clean layered architecture and separation of concerns.
+
+**Structure:**
+
+```text
+my-express-app/
+├── public/
+│   └── assets/
+├── src/
+│   ├── config/
+│   ├── controllers/
+│   ├── services/
+│   ├── repositories/
+│   ├── models/
+│   ├── middleware/
+│   ├── routes/
+│   ├── utils/
+│   │   ├── helpers/
+│   │   └── validators/
+│   ├── types/
+│   ├── constants/
+│   └── errors/
+└── tests/
+    ├── unit/
+    │   ├── controllers/
+    │   ├── services/
+    │   └── repositories/
+    ├── integration/
+    ├── e2e/
+    └── docs/
+```
+
+#### Express MVC Pattern (29 folders)
+
+Traditional Model-View-Controller architecture for Express applications.
+
+**Structure:**
+
+```text
+my-express-app/
+├── public/
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── src/
+│   ├── config/
+│   │   └── database/
+│   ├── controllers/
+│   ├── models/
+│   ├── views/
+│   │   ├── layouts/
+│   │   └── partials/
+│   ├── routes/
+│   ├── middleware/
+│   │   ├── auth/
+│   │   └── validation/
+│   ├── services/
+│   ├── utils/
+│   │   ├── helpers/
+│   │   └── validators/
+│   ├── types/
+│   └── constants/
+└── tests/
+    ├── unit/
+    ├── integration/
+    ├── e2e/
+    └── docs/
+```
+
+#### Express Feature-Based (37 folders)
+
+Domain-driven feature-based architecture for scalable Express applications.
+
+**Structure:**
+
+```text
+my-express-app/
+├── public/
+│   └── assets/
+├── src/
+│   ├── config/
+│   │   ├── database/
+│   │   └── auth/
+│   ├── features/
+│   │   ├── auth/
+│   │   │   ├── controllers/
+│   │   │   ├── services/
+│   │   │   ├── models/
+│   │   │   └── routes/
+│   │   ├── users/
+│   │   │   ├── controllers/
+│   │   │   ├── services/
+│   │   │   ├── models/
+│   │   │   └── routes/
+│   │   └── products/
+│   │       ├── controllers/
+│   │       ├── services/
+│   │       ├── models/
+│   │       └── routes/
+│   └── shared/
+│       ├── middleware/
+│       ├── utils/
+│       ├── types/
+│       ├── constants/
+│       └── errors/
+└── tests/
+    ├── unit/
+    ├── integration/
+    ├── e2e/
+    └── docs/
+```
+
 ## Template Selection
 
 When using `skaflo create`, you'll be prompted to choose:
 
-1. **Framework**: Currently React (more coming soon)
-2. **Structure Style**: Feature-based or Component-based
+1. **Framework**: React, Vue, Next.js, Angular, Express
+2. **Structure Style**: Depends on framework selected
 
 ## Usage Examples
 
@@ -102,15 +496,54 @@ When using `skaflo create`, you'll be prompted to choose:
 # Create feature-based React app
 skaflo create my-saas-app --framework react --structure feature-based
 
-# Create component-based React library
-skaflo create my-components --framework react --structure component-based
+# Create Vue 3 app with Composition API
+skaflo create my-vue-app --framework vue --structure composition-api
+
+# Create Next.js app with App Router
+skaflo create my-next-app --framework nextjs --structure app-router
+
+# Create Angular app with standalone components
+skaflo create my-angular-app --framework angular --structure standalone
+
+# Create Express API with layered architecture
+skaflo create my-api --framework express --structure layered
 ```
 
-## Future Templates
+## All Available Templates
 
-- Vue.js & Nuxt structures
-- Next.js App Router and Pages Router
-- Express/Node.js MVC and layered architectures
-- Angular standalone and module-based
-- Backend frameworks (NestJS, Fastify, Koa)
-- Mobile frameworks (React Native, Flutter)
+### Frontend Frameworks
+
+#### React (4 templates)
+
+- **Feature-based** - Domain-driven architecture for large apps
+- **Component-based** - Traditional structure for component libraries
+- **Atomic Design** - Design system with atoms, molecules, organisms
+- **Monorepo** - Multiple apps with shared packages
+
+#### Vue (4 templates)
+
+- **Composition API** - Vue 3 with modern Composition API structure
+- **Nuxt 3** - Nuxt 3 with App Router and SSR support
+- **Options API** - Traditional Vue Options API with Vuex
+- **Feature-based** - Domain-driven Vue architecture
+
+#### Next.js (4 templates)
+
+- **App Router** - Next.js 15 with server components
+- **Pages Router** - Traditional Pages Router structure
+- **Feature-based** - Domain-driven Next.js architecture
+- **Monorepo** - Multiple Next.js apps with shared packages
+
+#### Angular (3 templates)
+
+- **Standalone** - Angular 18 with standalone components
+- **Feature-based** - Modular feature architecture
+- **Module-based** - Traditional NgModule architecture
+
+### Backend Frameworks
+
+#### Express/Node.js (3 templates)
+
+- **Layered** - Layered architecture with separation of concerns
+- **MVC** - Model-View-Controller pattern
+- **Feature-based** - Domain-driven feature architecture

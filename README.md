@@ -42,16 +42,20 @@ Every developer has been there – staring at an empty folder, wondering how to 
 - ⚡ Getting you from idea to organized structure in under 10 seconds
 - 🛡️ Smart validation prevents overwrites and ensures clean directory creation
 
-## 🎯 Current Status: ✅ COMPLETE
+## 🎯 Current Status: ✅ Phase 2 COMPLETE (v1.5)
 
-### ✅ What's Working (v1.0)
+### ✅ What's Working (v1.5)
 
 - **Complete CLI with 3 commands**: `create`, `list`, `preview`
 - **Interactive prompts** with framework and architecture selection
 - **Folder-only generation** - No files, no boilerplate, just clean structure
-- **React templates**: Feature-based (37 folders) and Component-based architectures
+- **11 Production Templates** across 5 frameworks:
+  - **React**: Feature-based & Component-based
+  - **Vue**: Composition API & Nuxt 3
+  - **Next.js**: App Router & Pages Router
+  - **Angular**: Standalone & Feature-based
+  - **Express**: Layered, MVC & Feature-based
 - **Comprehensive validation** with error handling and safety checks
-- **99 tests passing** with 75.46% code coverage
 - **Production ready** with TypeScript, ESLint, and Jest
 
 ### 🚫 What Skaflo Does NOT Do
@@ -61,11 +65,11 @@ Every developer has been there – staring at an empty folder, wondering how to 
 - **No dependencies** - You choose your own packages
 - **No opinionated configurations** - You control your setup
 
-> **✨ Current Focus:** Skaflo creates organized folder hierarchies for your projects. You maintain complete control over file content, dependencies, and configurations.
+> **✨ Phase 2 Focus:** Skaflo now supports 5 major frameworks with 18 production-ready templates. You maintain complete control over file content, dependencies, and configurations.
 
 ## 🎯 Available Templates
 
-### React Framework
+### React Framework (4 templates)
 
 - **Feature-based Structure** (37 folders)
   - Organized by feature/domain
@@ -76,6 +80,94 @@ Every developer has been there – staring at an empty folder, wondering how to 
   - Traditional component organization
   - Clear separation of concerns
   - Ideal for component libraries and smaller apps
+
+- **Atomic Design** (39 folders)
+  - Atoms, molecules, organisms, templates
+  - Design system architecture
+  - Perfect for design system projects
+
+- **Monorepo** (23 folders)
+  - Multiple apps with shared packages
+  - Scalable multi-app architecture
+  - Ideal for large-scale projects
+
+### Vue Framework (4 templates)
+
+- **Composition API** (31 folders)
+  - Modern Vue 3 with Composition API
+  - Composables and Pinia stores
+  - Perfect for scalable Vue applications
+
+- **Nuxt 3 App Router** (31 folders)
+  - Server-side rendering with Nuxt 3
+  - File-based routing and server API
+  - Ideal for full-stack Vue applications
+
+- **Options API** (27 folders)
+  - Traditional Vue Options API
+  - Vuex store pattern
+  - Legacy Vue 2 migration path
+
+- **Feature-based** (43 folders)
+  - Domain-driven architecture
+  - Feature modules with full isolation
+  - Enterprise Vue applications
+
+### Next.js Framework (4 templates)
+
+- **App Router** (45 folders)
+  - Next.js 15 with server components
+  - Route groups and API routes
+  - Modern Next.js architecture
+
+- **Pages Router** (38 folders)
+  - Traditional Pages Router
+  - API routes and SSR support
+  - Backward compatible structure
+
+- **Feature-based** (39 folders)
+  - Domain-driven Next.js structure
+  - Feature modules with layouts
+  - Scalable Next.js applications
+
+- **Monorepo** (23 folders)
+  - Multiple Next.js apps
+  - Shared packages and configs
+  - Multi-tenant architectures
+
+### Angular Framework (3 templates)
+
+- **Standalone Components** (35 folders)
+  - Angular 18 standalone architecture
+  - No NgModules required
+  - Modern Angular best practices
+
+- **Feature-based** (47 folders)
+  - Modular feature architecture
+  - Core, shared, and feature modules
+  - Enterprise-ready structure
+
+- **Module-based** (30 folders)
+  - Traditional NgModule architecture
+  - Legacy Angular support
+  - Migration-friendly structure
+
+### Express/Node.js Framework (3 templates)
+
+- **Layered Architecture** (26 folders)
+  - Clean separation of concerns
+  - Repository and service layers
+  - Scalable API structure
+
+- **MVC Pattern** (29 folders)
+  - Model-View-Controller
+  - Traditional Express structure
+  - Full-stack Node.js apps
+
+- **Feature-based** (37 folders)
+  - Domain-driven design
+  - Feature modules with full stack
+  - Microservices-ready
 
 ### Core Functionality ✅
 
@@ -100,8 +192,8 @@ skaflo create
 
 This launches an interactive wizard that asks you:
 
-1. **Framework**: React (more coming soon)
-2. **Structure Style**: Feature-based or Component-based
+1. **Framework**: React, Vue, Next.js, Angular, Express
+2. **Structure Style**: Depends on selected framework
 3. **Project location**: Where to create the folder structure (or current directory if no name provided)
 
 ### Non-Interactive Mode
