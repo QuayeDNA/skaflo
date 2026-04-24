@@ -483,11 +483,185 @@ my-express-app/
     └── docs/
 ```
 
+#### Express TypeScript Architecture (32 folders)
+
+Express application structure optimized for TypeScript with organized configs, interfaces, and middleware.
+
+**Structure:**
+
+```text
+my-express-app/
+├── public/
+│   └── assets/
+├── src/
+│   ├── config/
+│   │   ├── database/
+│   │   ├── logger/
+│   │   └── env/
+│   ├── controllers/
+│   ├── routes/
+│   │   ├── auth/
+│   │   └── users/
+│   ├── services/
+│   ├── repositories/
+│   ├── middleware/
+│   │   ├── auth/
+│   │   └── validation/
+│   ├── models/
+│   ├── types/
+│   ├── interfaces/
+│   ├── utils/
+│   │   ├── helpers/
+│   │   └── validators/
+│   ├── constants/
+│   └── errors/
+└── tests/
+    ├── unit/
+    ├── integration/
+    ├── e2e/
+    └── docs/
+```
+
+### NestJS Framework
+
+#### NestJS Modular Architecture (1 template)
+
+NestJS application with modular architecture, shared modules, and feature-based organization.
+
+**Structure:**
+
+```text
+my-nest-app/
+├── docs/
+├── src/
+│   ├── app/
+│   │   ├── modules/
+│   │   │   ├── auth/
+│   │   │   │   ├── controllers/
+│   │   │   │   ├── services/
+│   │   │   │   └── dtos/
+│   │   │   ├── users/
+│   │   │   │   ├── controllers/
+│   │   │   │   ├── services/
+│   │   │   │   └── dtos/
+│   │   │   └── products/
+│   │   │       ├── controllers/
+│   │   │       ├── services/
+│   │   │       └── dtos/
+│   │   ├── common/
+│   │   │   ├── guards/
+│   │   │   ├── interceptors/
+│   │   │   ├── filters/
+│   │   │   ├── pipes/
+│   │   │   └── utils/
+│   │   └── shared/
+│   │       ├── interfaces/
+│   │       └── constants/
+│   ├── config/
+│   │   ├── database/
+│   │   ├── env/
+│   │   ├── logger/
+│   │   └── swagger/
+│   ├── utils/
+│   │   ├── helpers/
+│   │   └── validators/
+│   ├── types/
+│   └── constants/
+└── tests/
+    ├── unit/
+    ├── integration/
+    └── e2e/
+```
+
+### Fastify Framework
+
+#### Fastify Plugin-Based Architecture (1 template)
+
+Fastify application structured around plugins, routes, schemas, and services.
+
+**Structure:**
+
+```text
+my-fastify-app/
+├── docs/
+├── src/
+│   ├── plugins/
+│   │   ├── auth/
+│   │   ├── users/
+│   │   ├── database/
+│   │   └── logger/
+│   ├── routes/
+│   │   ├── auth/
+│   │   ├── users/
+│   │   └── products/
+│   ├── services/
+│   │   ├── auth/
+│   │   ├── users/
+│   │   └── products/
+│   ├── controllers/
+│   ├── schemas/
+│   │   ├── auth/
+│   │   ├── users/
+│   │   └── products/
+│   ├── config/
+│   │   ├── env/
+│   │   ├── logger/
+│   │   └── database/
+│   ├── utils/
+│   │   ├── helpers/
+│   │   └── validators/
+│   ├── types/
+│   └── constants/
+└── tests/
+    ├── unit/
+    ├── integration/
+    └── e2e/
+```
+
+### Koa Framework
+
+#### Koa Middleware Architecture (1 template)
+
+Koa application organized around middleware, controllers, routes, and services.
+
+**Structure:**
+
+```text
+my-koa-app/
+├── docs/
+├── src/
+│   ├── app/
+│   ├── middleware/
+│   │   ├── auth/
+│   │   ├── error/
+│   │   ├── validation/
+│   │   └── logging/
+│   ├── routes/
+│   │   ├── auth/
+│   │   ├── users/
+│   │   └── products/
+│   ├── controllers/
+│   ├── services/
+│   ├── models/
+│   ├── config/
+│   │   ├── env/
+│   │   └── logger/
+│   ├── utils/
+│   │   ├── helpers/
+│   │   └── validators/
+│   ├── types/
+│   └── constants/
+└── tests/
+    ├── unit/
+    ├── integration/
+    └── e2e/
+```
+
 ## Template Selection
 
 When using `skaflo create`, you'll be prompted to choose:
 
-1. **Framework**: React, Vue, Next.js, Angular, Express
+1. **Framework**: React, Vue, Next.js, Angular, Express, NestJS, Fastify, Koa
 2. **Structure Style**: Depends on framework selected
 
 ## Usage Examples
@@ -540,10 +714,42 @@ skaflo create my-api --framework express --structure layered
 - **Feature-based** - Modular feature architecture
 - **Module-based** - Traditional NgModule architecture
 
-### Backend Frameworks
-
-#### Express/Node.js (3 templates)
+#### Express/Node.js (4 templates)
 
 - **Layered** - Layered architecture with separation of concerns
 - **MVC** - Model-View-Controller pattern
 - **Feature-based** - Domain-driven feature architecture
+- **TypeScript** - Express architecture optimized for TypeScript
+
+#### NestJS (1 template)
+
+- **Modular** - NestJS application structure with feature and shared modules
+
+#### Fastify (1 template)
+
+- **Plugin-based** - Fastify application organized around plugins, routes, and shared schemas
+
+#### Koa (1 template)
+
+- **Middleware** - Koa application structured around middleware and routes
+
+### Backend Frameworks
+
+#### Express/Node.js (4 templates)
+
+- **Layered** - Layered architecture with separation of concerns
+- **MVC** - Model-View-Controller pattern
+- **Feature-based** - Domain-driven feature architecture
+- **TypeScript** - Express architecture optimized for TypeScript with config, types, and middleware organization
+
+#### NestJS (1 template)
+
+- **Modular** - NestJS application with feature modules, shared modules, and common utilities
+
+#### Fastify (1 template)
+
+- **Plugin-based** - Fastify application organized around plugins, route modules, schemas, and services
+
+#### Koa (1 template)
+
+- **Middleware** - Koa application structured around middleware, routes, controllers, and services
