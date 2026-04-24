@@ -9,7 +9,7 @@ export class FileSystemUtils {
     try {
       await fs.ensureDir(dirPath);
     } catch (error) {
-      throw new Error(`Failed to create directory ${dirPath}: ${error}`);
+      throw new Error(`Failed to create directory ${dirPath}`, { cause: error });
     }
   }
 
@@ -33,7 +33,7 @@ export class FileSystemUtils {
       await fs.ensureDir(path.dirname(filePath));
       await fs.writeFile(filePath, content, 'utf-8');
     } catch (error) {
-      throw new Error(`Failed to write file ${filePath}: ${error}`);
+      throw new Error(`Failed to write file ${filePath}`, { cause: error });
     }
   }
 
@@ -44,7 +44,7 @@ export class FileSystemUtils {
     try {
       return await fs.readFile(filePath, 'utf-8');
     } catch (error) {
-      throw new Error(`Failed to read file ${filePath}: ${error}`);
+      throw new Error(`Failed to read file ${filePath}`, { cause: error });
     }
   }
 
@@ -55,7 +55,7 @@ export class FileSystemUtils {
     try {
       await fs.copy(source, destination);
     } catch (error) {
-      throw new Error(`Failed to copy ${source} to ${destination}: ${error}`);
+      throw new Error(`Failed to copy ${source} to ${destination}`, { cause: error });
     }
   }
 
@@ -66,7 +66,7 @@ export class FileSystemUtils {
     try {
       await fs.remove(target);
     } catch (error) {
-      throw new Error(`Failed to remove ${target}: ${error}`);
+      throw new Error(`Failed to remove ${target}`, { cause: error });
     }
   }
 
