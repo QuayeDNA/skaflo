@@ -26,7 +26,13 @@ import {
   expressLayeredStructure,
   expressMvcStructure,
   expressFeatureBasedStructure,
+  expressTypeScriptStructure,
 } from './express.structures';
+import {
+  nestjsModularStructure,
+  fastifyPluginBasedStructure,
+  koaMiddlewareStructure,
+} from './backend.structures';
 
 export class StructureRegistry {
   private structures: Map<string, FolderStructure> = new Map();
@@ -59,6 +65,12 @@ export class StructureRegistry {
     this.registerStructure(expressLayeredStructure);
     this.registerStructure(expressMvcStructure);
     this.registerStructure(expressFeatureBasedStructure);
+    this.registerStructure(expressTypeScriptStructure);
+
+    // Backend templates
+    this.registerStructure(nestjsModularStructure);
+    this.registerStructure(fastifyPluginBasedStructure);
+    this.registerStructure(koaMiddlewareStructure);
   }
 
   registerStructure(structure: FolderStructure): void {

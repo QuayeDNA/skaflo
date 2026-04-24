@@ -29,7 +29,9 @@
 **Solution:**
 
 - Use `skaflo list` to see available options
-- Currently supported: `--framework react --structure feature-based|component-based`
+- Currently supported frameworks:
+  - react, vue, nextjs, angular, express, nestjs, fastify, koa
+- Use `skaflo list` to discover valid structure types for each framework
 
 ### Node.js Version Issues
 

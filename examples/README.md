@@ -149,6 +149,13 @@ skaflo list
 # React Templates:
 #   - feature-based: Feature-driven architecture (37 folders)
 #   - component-based: Traditional component organization (25 folders)
+# Express Templates:
+#   - layered: Layered architecture with clean separation
+#   - mvc: Model-View-Controller structure
+#   - feature-based: Domain-driven feature architecture
+#   - typescript: TypeScript-friendly Express architecture
+# NestJS Templates:
+#   - modular: Modular NestJS structure with shared modules
 ```
 
 ## 💡 Pro Tips

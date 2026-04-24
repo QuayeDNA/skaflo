@@ -22,7 +22,7 @@ A focused CLI tool for generating clean folder structures without boilerplate fi
 ## 🔥 Phase 3: Advanced Features (v2.0) - Q1.5 2026
 
 - [ ] **Monorepo structures** (Turborepo, Nx, Lerna)
-- [ ] **Backend frameworks** (NestJS, Fastify, Koa)
+- [x] **Backend frameworks** (NestJS, Fastify, Koa)
 - [ ] **Mobile frameworks** (React Native, Flutter project structure)
 - [ ] **VS Code extension** - Generate structures directly in editor
 - [ ] **Configuration file support** (`.skaflorc`)

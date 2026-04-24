@@ -12,8 +12,8 @@ Create a new folder structure for your project.
 
 **Flags:**
 
-- `--framework <framework>`: Framework to use (currently: react)
-- `--structure <structure>`: Structure type (feature-based, component-based)
+- `--framework <framework>`: Framework to use (react, vue, nextjs, angular, express, nestjs, fastify, koa)
+- `--structure <structure>`: Structure type depends on the selected framework
 
 **Examples:**
 
@@ -26,6 +26,12 @@ skaflo create
 
 # Non-interactive with flags
 skaflo create my-app --framework react --structure feature-based
+
+# Create an Express TypeScript API
+skaflo create my-api --framework express --structure typescript
+
+# Create a NestJS modular backend
+skaflo create my-nest-app --framework nestjs --structure modular
 ```
 
 ### `skaflo list`

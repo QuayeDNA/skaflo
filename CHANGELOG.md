@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Backend framework templates for NestJS, Fastify, and Koa
+- Express TypeScript architecture template
+- CLI support for all supported frameworks: react, vue, nextjs, angular, express, nestjs, fastify, koa
+- Updated registry and validation tests for backend templates
+- Documentation updates for backend templates and CLI usage
+
+### Changed
+
+- Current repository now supports 8 frameworks and 22 templates
+- Updated docs/api.md, docs/templates.md, docs/architecture.md, docs/troubleshooting.md, and examples/README.md
+- Roadmap updated to reflect backend frameworks implementation
+
 ## [1.5.0] - 2025-01-06 - Phase 2 Complete 🎉
 
 ### 🎯 Major Release - Template Expansion

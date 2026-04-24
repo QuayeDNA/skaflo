@@ -2,6 +2,7 @@ import {
   expressLayeredStructure,
   expressMvcStructure,
   expressFeatureBasedStructure,
+  expressTypeScriptStructure,
 } from '../../../src/templates/express.structures';
 
 describe('Express Templates', () => {
@@ -190,6 +191,15 @@ describe('Express Templates', () => {
       expect(
         expressFeatureBasedStructure.directories.length,
       ).toBeGreaterThanOrEqual(expressMvcStructure.directories.length);
+    });
+
+    it('should include TypeScript-specific express structure', () => {
+      expect(expressTypeScriptStructure.id).toBe('express-typescript');
+      expect(expressTypeScriptStructure.framework).toBe('express');
+      expect(expressTypeScriptStructure.structure).toBe('typescript');
+      expect(expressTypeScriptStructure.directories).toContain('src/types');
+      expect(expressTypeScriptStructure.directories).toContain('src/interfaces');
+      expect(expressTypeScriptStructure.directories).toContain('src/config/logger');
     });
   });
 });
