@@ -218,22 +218,25 @@ describe('StructureRegistry', () => {
 
     test('should have Express structures registered by default', () => {
       const expressStructures = registry.getStructuresByFramework('express');
-      expect(expressStructures.length).toBe(3);
+      expect(expressStructures.length).toBe(4);
     });
 
-    test('should have 18 total templates registered', () => {
+    test('should have 22 total templates registered', () => {
       const allStructures = registry.getAllStructures();
-      expect(allStructures.length).toBe(18);
+      expect(allStructures.length).toBe(22);
     });
 
-    test('should have 5 frameworks available', () => {
+    test('should have 8 frameworks available', () => {
       const frameworks = registry.getAvailableFrameworks();
-      expect(frameworks.length).toBe(5);
+      expect(frameworks.length).toBe(8);
       expect(frameworks).toContain('react');
       expect(frameworks).toContain('vue');
       expect(frameworks).toContain('nextjs');
       expect(frameworks).toContain('angular');
       expect(frameworks).toContain('express');
+      expect(frameworks).toContain('nestjs');
+      expect(frameworks).toContain('fastify');
+      expect(frameworks).toContain('koa');
     });
 
     test('should have feature-based React structure', () => {
@@ -330,6 +333,42 @@ describe('StructureRegistry', () => {
       );
       expect(structure).toBeDefined();
       expect(structure?.name).toContain('Feature-Based');
+    });
+
+    test('should have Express TypeScript structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'express',
+        'typescript',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('TypeScript');
+    });
+
+    test('should have NestJS modular structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'nestjs',
+        'modular',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('NestJS');
+    });
+
+    test('should have Fastify plugin-based structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'fastify',
+        'plugin-based',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('Plugin-Based');
+    });
+
+    test('should have Koa middleware structure', () => {
+      const structure = registry.getStructureByFrameworkAndType(
+        'koa',
+        'middleware',
+      );
+      expect(structure).toBeDefined();
+      expect(structure?.name).toContain('Middleware');
     });
   });
 });
