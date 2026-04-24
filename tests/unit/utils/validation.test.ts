@@ -52,6 +52,15 @@ describe('ValidationUtils', () => {
       expect(
         ValidationUtils.isValid(ValidationUtils.validateFramework('express')),
       ).toBe(true);
+      expect(
+        ValidationUtils.isValid(ValidationUtils.validateFramework('nestjs')),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(ValidationUtils.validateFramework('fastify')),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(ValidationUtils.validateFramework('koa')),
+      ).toBe(true);
     });
 
     it('should reject invalid frameworks', () => {
@@ -96,6 +105,34 @@ describe('ValidationUtils', () => {
       expect(
         ValidationUtils.isValid(
           ValidationUtils.validateStructure('mvc', 'express'),
+        ),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('feature-based', 'express'),
+        ),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('typescript', 'express'),
+        ),
+      ).toBe(true);
+    });
+
+    it('should accept valid backend structures', () => {
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('modular', 'nestjs'),
+        ),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('plugin-based', 'fastify'),
+        ),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('middleware', 'koa'),
         ),
       ).toBe(true);
     });
