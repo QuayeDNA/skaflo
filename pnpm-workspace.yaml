@@ -1,0 +1,8 @@
+allowBuilds:
+  '@parcel/watcher': true
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - joi@18.2.9
+overrides:
+  flatted: '>=3.4.2'
+  js-yaml: '>=3.14.2'
