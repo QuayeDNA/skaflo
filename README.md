@@ -37,7 +37,6 @@ These resources help you find the right information fast:
 - [Examples](examples/README.md)
 - [Contributing](CONTRIBUTING.md)
 - [Roadmap](Roadmap.md)
-- [Validation report](VALIDATION_REPORT.md)
 - [Changelog](CHANGELOG.md)
 
 ## 🚀 Quick start
