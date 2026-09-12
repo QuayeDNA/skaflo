@@ -47,7 +47,13 @@ describe('ValidationUtils', () => {
         ValidationUtils.isValid(ValidationUtils.validateFramework('react')),
       ).toBe(true);
       expect(
+        ValidationUtils.isValid(ValidationUtils.validateFramework('vue')),
+      ).toBe(true);
+      expect(
         ValidationUtils.isValid(ValidationUtils.validateFramework('nextjs')),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(ValidationUtils.validateFramework('angular')),
       ).toBe(true);
       expect(
         ValidationUtils.isValid(ValidationUtils.validateFramework('express')),
@@ -92,6 +98,47 @@ describe('ValidationUtils', () => {
       expect(
         ValidationUtils.isValid(
           ValidationUtils.validateStructure('pages-router', 'nextjs'),
+        ),
+      ).toBe(true);
+    });
+
+    it('should accept valid vue structures', () => {
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('composition-api', 'vue'),
+        ),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('app-router', 'vue'),
+        ),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('options-api', 'vue'),
+        ),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('feature-based', 'vue'),
+        ),
+      ).toBe(true);
+    });
+
+    it('should accept valid angular structures', () => {
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('standalone', 'angular'),
+        ),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('feature-based', 'angular'),
+        ),
+      ).toBe(true);
+      expect(
+        ValidationUtils.isValid(
+          ValidationUtils.validateStructure('module-based', 'angular'),
         ),
       ).toBe(true);
     });

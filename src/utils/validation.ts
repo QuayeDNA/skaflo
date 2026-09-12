@@ -26,11 +26,20 @@ export class ValidationUtils {
    */
   static validateFramework(framework: string): Joi.ValidationResult {
     const schema = Joi.string()
-      .valid('react', 'nextjs', 'express', 'nestjs', 'fastify', 'koa')
+      .valid(
+        'react',
+        'vue',
+        'nextjs',
+        'angular',
+        'express',
+        'nestjs',
+        'fastify',
+        'koa',
+      )
       .required()
       .messages({
         'any.only':
-          'Framework must be one of: react, nextjs, express, nestjs, fastify, koa',
+          'Framework must be one of: react, vue, nextjs, angular, express, nestjs, fastify, koa',
       });
 
     return schema.validate(framework);
@@ -55,8 +64,19 @@ export class ValidationUtils {
       case 'react':
         validStructures = ['feature-based', 'component-based'];
         break;
+      case 'vue':
+        validStructures = [
+          'composition-api',
+          'app-router',
+          'options-api',
+          'feature-based',
+        ];
+        break;
       case 'nextjs':
         validStructures = ['app-router', 'pages-router'];
+        break;
+      case 'angular':
+        validStructures = ['standalone', 'feature-based', 'module-based'];
         break;
       case 'express':
         validStructures = ['layered', 'mvc', 'feature-based', 'typescript'];
