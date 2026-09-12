@@ -5,21 +5,84 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.6.0] - 2026-09-12 - Backend Framework Templates 🚀
 
-### Added
+### 🎯 Release - Backend Expansion (Phase 3)
 
-- Backend framework templates for NestJS, Fastify, and Koa
-- Express TypeScript architecture template
-- CLI support for all supported frameworks: react, vue, nextjs, angular, express, nestjs, fastify, koa
-- Updated registry and validation tests for backend templates
-- Documentation updates for backend templates and CLI usage
+This release adds dedicated **backend framework templates**, bringing Skaflo from 5 to **8 frameworks and 22 templates**. Phase 3 of the roadmap is now complete.
 
-### Changed
+#### ✨ Added - New Backend Frameworks & Templates
 
-- Current repository now supports 8 frameworks and 22 templates
-- Updated docs/api.md, docs/templates.md, docs/architecture.md, docs/troubleshooting.md, and examples/README.md
-- Roadmap updated to reflect backend frameworks implementation
+##### NestJS (1 template)
+
+- ✅ **NestJS Modular Architecture** structure (38 folders)
+  - Feature modules (auth, users, products) with controllers, services, and DTOs
+  - Common layer (guards, interceptors, filters, pipes)
+  - Shared interfaces, config (database, env, logger, swagger)
+  - Unit/integration/e2e test layout
+
+##### Fastify (1 template)
+
+- ✅ **Fastify Plugin-Based Architecture** structure (32 folders)
+  - Plugin-driven organization (auth, users, database, logger)
+  - Routes, services, controllers, and JSON schemas
+  - Config, schemas, and test layout
+
+##### Koa (1 template)
+
+- ✅ **Koa Middleware Architecture** structure (28 folders)
+  - Middleware-first organization (auth, error, validation, logging)
+  - Routes, controllers, services, and models
+  - Unit/integration/e2e test layout
+
+##### Express (EXPANDED to 4 templates)
+
+- ✅ **Express TypeScript Architecture** structure (32 folders) - NEW
+  - TypeScript-optimized with dedicated config, types, and interfaces
+  - Typed middleware (auth, validation) and repositories
+  - Organized env, logger, and database config
+
+#### 📦 Registry & Validation
+
+- **8 frameworks supported**: react, vue, nextjs, angular, express, nestjs, fastify, koa
+- **22 total templates**: React 4, Vue 4, Next.js 4, Angular 3, Express 4, NestJS 1, Fastify 1, Koa 1
+- **Validation parity** - framework and structure validators now cover all 8 frameworks
+- **Non-interactive CLI** - `--framework nestjs/fastify/koa --structure ...` supported end-to-end
+
+#### 🧪 Testing & Quality
+
+- New `backend.structures.test.ts` suite covering all 3 backend templates
+- Expanded registry and validation tests
+- **233 tests passing** across 13 suites
+- TypeScript target upgraded to **ES2022**
+- Added `typescript-eslint` for TypeScript-aware linting
+- Better error context via `{ cause }` chaining in `FileSystemUtils`
+
+#### 📚 Documentation Updates
+
+- **docs/templates.md** - Full tree diagrams for NestJS, Fastify, Koa, and Express TypeScript
+- **docs/api.md** - Updated framework list and backend CLI examples
+- **README.md** - Rewritten with supported frameworks, quick start, and workflow
+- **examples/README.md** and **docs/architecture.md** - Reflect new backend templates
+
+#### 🎯 Breaking Changes
+
+None - fully backward-compatible feature expansion.
+
+#### 🚀 Migration Guide
+
+Not needed. Update to v1.6.0 and use the new templates:
+
+```bash
+# Update globally
+pnpm add -g skaflo@1.6.0
+
+# Backend templates
+skaflo create my-nest-app --framework nestjs --structure modular
+skaflo create my-fastify-app --framework fastify --structure plugin-based
+skaflo create my-koa-app --framework koa --structure middleware
+skaflo create my-ts-api --framework express --structure typescript
+```
 
 ## [1.5.0] - 2025-01-06 - Phase 2 Complete 🎉
 
